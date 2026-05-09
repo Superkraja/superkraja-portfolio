@@ -86,9 +86,9 @@ function Nav({ onContact, active }) {
           )}
         </nav>
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <button className="cta email-cta" onClick={() => window.location.href = "mailto:superkraja@gmail.com"}>
+          <a className="cta email-cta" href="mailto:superkraja@gmail.com" target="_blank" rel="noopener noreferrer">
             <Ico name="mail" size={16} /> <span className="email-label">superkraja@gmail.com</span>
-          </button>
+          </a>
           <button className="menu-btn" onClick={() => setMenu((m) => !m)} aria-label="Menu"><span /></button>
         </div>
       </header>
@@ -383,7 +383,7 @@ function Contact() {
             <h3>Be happy!</h3>
             <p className="tagline">Prefer email or a DM? Here's every door you can knock on.</p>
             <div className="contact-list">
-              <a className="contact-row" href="mailto:superkraja@gmail.com">
+              <a className="contact-row" href="mailto:superkraja@gmail.com" target="_blank" rel="noopener noreferrer">
                 <span className="ico"><Ico name="mail" size={18} color="#fff" /></span>
                 <span className="meta"><small>Email</small><strong>superkraja@gmail.com</strong></span>
               </a>
@@ -546,12 +546,39 @@ function saveNavState(sub, aboutOpen) {
   } catch (e) {}
 }
 
+// Hash routing helpers — gives every page its own shareable URL
+// e.g. superkraja.com#/case/0  superkraja.com#/spec/1  superkraja.com#/brand/2  superkraja.com#/about
+function parseHash() {
+  const raw = window.location.hash.replace(/^#\/?/, "");
+  if (!raw) return null;
+  const parts = raw.split("/");
+  const kind = parts[0] || null;
+  const idx = parseInt(parts[1], 10);
+  const safeIdx = Number.isFinite(idx) ? idx : 0;
+  if (kind === "spec")  return { sub: { kind: "spec",  specIdx: safeIdx, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
+  if (kind === "case")  return { sub: { kind: "case",  specIdx: 0, storyIdx: 0, caseIdx: safeIdx, brandIdx: 0 }, aboutOpen: false };
+  if (kind === "brand") return { sub: { kind: "brand", specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: safeIdx }, aboutOpen: false };
+  if (kind === "about") return { sub: { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: true };
+  return null;
+}
+
+function stateToHash(sub, aboutOpen) {
+  if (aboutOpen) return "#/about";
+  if (!sub.kind) return "#";
+  if (sub.kind === "spec")  return `#/spec/${sub.specIdx}`;
+  if (sub.kind === "case")  return `#/case/${sub.caseIdx}`;
+  if (sub.kind === "brand") return `#/brand/${sub.brandIdx}`;
+  return "#";
+}
+
 // --- App root ---
 function App() {
-  const saved = readNavState();
+  // Hash takes priority over localStorage (so shared links always work)
+  const hashState = parseHash();
+  const saved = hashState ? null : readNavState();
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
-  const [sub, setSub] = useState(saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
-  const [aboutOpen, setAboutOpen] = useState(saved ? !!saved.aboutOpen : false);
+  const [sub, setSub] = useState(hashState ? hashState.sub : (saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }));
+  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : (saved ? !!saved.aboutOpen : false));
   const active = useScrollSpy(NAV_SECTIONS.map((n) => n.id));
   useRevealOnScroll([]);
 
@@ -570,6 +597,38 @@ function App() {
   useEffect(() => {
     document.body.style.overflow = overlayOpen ? "hidden" : "";
   }, [overlayOpen]);
+
+  // — Hash routing: keep URL in sync with open state ————————————————
+  const isHandlingPopState = useRef(false);
+  const prevKindRef = useRef(aboutOpen ? "about" : sub.kind);
+
+  useEffect(() => {
+    // Skip if this render was triggered BY a popstate (avoid loop)
+    if (isHandlingPopState.current) { isHandlingPopState.current = false; return; }
+    const newHash = stateToHash(sub, aboutOpen);
+    const curKind = aboutOpen ? "about" : sub.kind;
+    if (window.location.hash !== newHash) {
+      // Push a new history entry when opening something new; replace otherwise
+      if (prevKindRef.current !== curKind && curKind !== null) {
+        history.pushState(null, "", newHash);
+      } else {
+        history.replaceState(null, "", newHash);
+      }
+    }
+    prevKindRef.current = curKind;
+  }, [sub, aboutOpen]);
+
+  useEffect(() => {
+    const onPop = () => {
+      isHandlingPopState.current = true;
+      const state = parseHash();
+      if (state) { setSub(state.sub); setAboutOpen(state.aboutOpen); }
+      else { setSub((s) => ({ ...s, kind: null })); setAboutOpen(false); }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+  // ——————————————————————————————————————————————————————————————————
 
   const openSpec = (specId, storyIdx = 0) => {
     const idx = SPECIALTIES.findIndex((s) => s.id === specId);
