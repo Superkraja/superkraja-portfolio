@@ -277,7 +277,7 @@ function About({ onOpen }) {
         </div>
         <div className="about-hero">
           <div className="about-photo reveal" ref={bgRef} aria-label="Kraja at the desk">
-            <img src="assets/about-me-photo.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src="assets/me-2-tiny.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
           </div>
           <div className="about-copy reveal d1">
             <h2>Why Super?</h2>

@@ -666,7 +666,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             Throughout the design process, these three rules are the one thing everyone must stick to. That means no one — not even someone at the C-level — can propose anything that conflicts with them.
           </p>
           <div style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", marginTop: 40, marginBottom: 8 }}>
-            <img src="assets/ux-david-rota.jpg" alt="David Rota presenting principles" style={{ width: "100%", display: "block" }} />
+            <img src="assets/ux-david-rota-2.png" alt="David Rota presenting principles" style={{ width: "100%", display: "block" }} />
           </div>
           <p style={{ fontSize: 13, color: "var(--muted)", fontStyle: "italic", textAlign: "center", lineHeight: 1.5 }}>
             * My dear PO David Rota presenting principles to the team back in 2021.
@@ -770,7 +770,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
               <p style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 700, lineHeight: 1.3, color: "#fff", margin: 0 }}>
                 We are a kind of visual artist — the kind developers simply can't do without.
               </p>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", margin: 0 }}>— Vladimir "Kraja" Krajišnik</p>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", margin: 0 }}>— by SUPER me</p>
             </div>
           </div>
         </div>

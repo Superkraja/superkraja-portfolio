@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kraja — Product Designer</title>
+<link rel="icon" type="image/png" href="assets/favicon.png" />
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPX3NJTL10"></script>
 <script>
@@ -284,7 +285,7 @@
   .spec-card:hover{transform:translateY(-8px);box-shadow:0 30px 50px -20px rgba(34,75,86,.32)}
   .spec-illo{
     width:50%;aspect-ratio:1;border-radius:24px;margin-bottom:18px;
-    display:grid;place-items:center;position:relative;overflow:hidden;
+    display:grid;place-items:center;position:relative;overflow:visible;
   }
   .spec-illo.brand{background:transparent}
   .spec-illo.ux{background:transparent}
@@ -392,8 +393,18 @@
   @media (min-width:860px){.about-hero{grid-template-columns:1.1fr 1fr}}
   .about-photo{
     position:relative;width:100%;aspect-ratio:733/544;
-    border-radius:377px;overflow:hidden;background:#eee;
+    border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;
+    overflow:hidden;background:#eee;
     box-shadow:var(--shadow-card);
+    animation:blobMorph 20s ease-in-out infinite;
+  }
+  @keyframes blobMorph{
+    0%{border-radius:60% 40% 30% 70% / 60% 30% 70% 40%}
+    20%{border-radius:37% 63% 51% 49% / 37% 65% 35% 63%}
+    40%{border-radius:30% 60% 70% 40% / 50% 60% 30% 60%}
+    60%{border-radius:56% 44% 36% 64% / 48% 36% 64% 52%}
+    80%{border-radius:40% 60% 55% 35% / 55% 42% 58% 45%}
+    100%{border-radius:60% 40% 30% 70% / 60% 30% 70% 40%}
   }
   .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
   .about-photo.placeholder{
