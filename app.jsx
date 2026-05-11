@@ -129,7 +129,7 @@ function Hero({ showBolts }) {
             <span className="hi">Hi,</span>
             <span>My name is Super.</span>
             <br />
-            <span>I am <span className="accent">KRAJA</span><span className="pron">/ˈkra.ya/</span></span>
+            <span>I am <span className="accent">KRAJA</span><span className="pron">/ˈkra:ya/</span></span>
           </div>
           <div className="hero-wordmark">
             PRODUCT<br />DESIGN<span className="er">er</span>
@@ -555,8 +555,8 @@ function parseHash() {
   const kind = parts[0] || null;
   const idx = parseInt(parts[1], 10);
   const safeIdx = Number.isFinite(idx) ? idx : 0;
-  if (kind === "spec")  return { sub: { kind: "spec",  specIdx: safeIdx, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
-  if (kind === "case")  return { sub: { kind: "case",  specIdx: 0, storyIdx: 0, caseIdx: safeIdx, brandIdx: 0 }, aboutOpen: false };
+  if (kind === "spec") return { sub: { kind: "spec", specIdx: safeIdx, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
+  if (kind === "case") return { sub: { kind: "case", specIdx: 0, storyIdx: 0, caseIdx: safeIdx, brandIdx: 0 }, aboutOpen: false };
   if (kind === "brand") return { sub: { kind: "brand", specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: safeIdx }, aboutOpen: false };
   if (kind === "about") return { sub: { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: true };
   return null;
@@ -565,8 +565,8 @@ function parseHash() {
 function stateToHash(sub, aboutOpen) {
   if (aboutOpen) return "#/about";
   if (!sub.kind) return "#";
-  if (sub.kind === "spec")  return `#/spec/${sub.specIdx}`;
-  if (sub.kind === "case")  return `#/case/${sub.caseIdx}`;
+  if (sub.kind === "spec") return `#/spec/${sub.specIdx}`;
+  if (sub.kind === "case") return `#/case/${sub.caseIdx}`;
   if (sub.kind === "brand") return `#/brand/${sub.brandIdx}`;
   return "#";
 }
@@ -577,8 +577,8 @@ function App() {
   const hashState = parseHash();
   const saved = hashState ? null : readNavState();
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
-  const [sub, setSub] = useState(hashState ? hashState.sub : (saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }));
-  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : (saved ? !!saved.aboutOpen : false));
+  const [sub, setSub] = useState(hashState ? hashState.sub : saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
+  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : saved ? !!saved.aboutOpen : false);
   const active = useScrollSpy(NAV_SECTIONS.map((n) => n.id));
   useRevealOnScroll([]);
 
@@ -604,7 +604,7 @@ function App() {
 
   useEffect(() => {
     // Skip if this render was triggered BY a popstate (avoid loop)
-    if (isHandlingPopState.current) { isHandlingPopState.current = false; return; }
+    if (isHandlingPopState.current) {isHandlingPopState.current = false;return;}
     const newHash = stateToHash(sub, aboutOpen);
     const curKind = aboutOpen ? "about" : sub.kind;
     if (window.location.hash !== newHash) {
@@ -622,8 +622,8 @@ function App() {
     const onPop = () => {
       isHandlingPopState.current = true;
       const state = parseHash();
-      if (state) { setSub(state.sub); setAboutOpen(state.aboutOpen); }
-      else { setSub((s) => ({ ...s, kind: null })); setAboutOpen(false); }
+      if (state) {setSub(state.sub);setAboutOpen(state.aboutOpen);} else
+      {setSub((s) => ({ ...s, kind: null }));setAboutOpen(false);}
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);

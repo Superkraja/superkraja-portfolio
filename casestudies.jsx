@@ -578,7 +578,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
               User<br />experience.
             </h1>
             <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>
-              Why is it important to have a flawless user experience? Because even though it's just a small piece, it can reflect the brand as a whole.
+              Why does a flawless user experience matter? Because even a small detail can shape how people perceive your entire brand.
             </p>
           </div>
           <div className="sp-hero-illo" style={{ borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -593,13 +593,13 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
           <div style={{ maxWidth: 760 }}>
             <div className="bf-tag bf-tag-blue">What is user experience?</div>
             <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(32px,4vw,52px)", lineHeight: 1, margin: "0 0 20px" }}>
-              It's not just about the app.<br />It's the whole product.
+              It's not just about the app — it's about the entire product.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              It's not just about how easily, efficiently, logically, and enjoyably an app can be used. When we think about the user experience as a whole, we have to consider how the user navigates not only within the app, but globally — with the entire product.
+              It's not just about how easy, efficient, logical, and enjoyable an app is to use. A complete user experience also considers how someone interacts with the entire product — not just the app itself.
             </p>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              Can removing certain frustrations make the user fall in love with a product or brand? Of course it can. That's why we need to think about the user holistically: what exactly can make them happy while using a product, what daily obstacles are bothering them, and how those can be removed.
+            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>Can improving the right features make users fall in love with a brand? Absolutely. That's why we need to a clear picture from the user's perspective: what truly makes them happy, what daily frustrations stand in their way, and how we can improve them.
+
             </p>
           </div>
         </div>
@@ -614,13 +614,13 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
               Every project needs a different approach.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              I've often come onto projects that didn't have a clear definition of what they actually wanted from the user experience. Some weren't even interested in the concept of refining it, or in creating one at all. Some didn't see the potential in improving their existing base.
+              I've often joined projects where the team didn't have a clear workflow for improving the user experience. Some weren't even interested in making improvements, and most didn't have a clear picture of what UX really is — or why it's so important to improve it.
             </p>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              <strong>Success lies in the power of convincing management of just how important user experience is.</strong>
+              <strong>Success lies in your ability to showcase results and demonstrate just how important user experience really is.</strong>
             </p>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              In some cases, you need to create a completely new experience; in others, there's a need to improve an existing one; sometimes you don't know who your user is — and in most cases, you don't.
+              Sometimes you need to create a completely new experience, sometimes you need to improve an existing one, and sometimes you don't even know who your user is — which, more often than not, is the case. That's why we need the right approach and strategy, tailored to the actual need.
             </p>
           </div>
         </div>
@@ -631,10 +631,13 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="bf-tag bf-tag-green">Blueprint & design rules</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px", maxWidth: 720 }}>
-            A blueprint every team member can rally around.
+            A blueprint everyone on the team can align with.
           </h2>
           <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
-            UX strategy blueprint is really important for every team member to realize what a new project is all about. With it, we can define and set up challenges, focus areas and guiding principles. And most important of all — design rules. We have to follow our design rules and principles to create the best possible easy-to-use application.
+            A UX strategy blueprint is essential for helping every team member understand what a new project is really about. It allows us to define challenges, set focus areas, and establish guiding principles — and most importantly, our design rules. Following these rules and principles is what enables us to create the best possible, easy-to-use application.
+          </p>
+          <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
+            Here's what a blueprint can look like:
           </p>
           <div style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)" }}>
             <img src="assets/ux-blueprint.jpg" alt="Blueprint wall" style={{ width: "100%", display: "block" }} />
@@ -650,9 +653,9 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             Three rules.<br />No exceptions.
           </h2>
           {[
-          { num: "01", rule: "Our services are a joy to use." },
-          { num: "02", rule: "All information must be transparent." },
-          { num: "03", rule: "Simple, understandable and fast." }].
+          { num: "01", rule: "Keep it user-centered." },
+          { num: "02", rule: "Keep all information transparent." },
+          { num: "03", rule: "Keep it simple, clear, and fast." }].
           map((r) =>
           <div key={r.num} style={{ display: "flex", gap: 20, alignItems: "flex-start", marginBottom: 24 }}>
               <div style={{ fontFamily: "Patrick Hand SC", fontSize: 32, color: "var(--blue)", lineHeight: 1, flexShrink: 0, marginTop: 2 }}>{r.num}</div>
@@ -660,7 +663,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             </div>
           )}
           <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, marginTop: 16, borderLeft: "3px solid var(--blue)", paddingLeft: 16, maxWidth: 720 }}>
-            During our design process, the only thing everyone has to stick to are these three rules. That means no one — not even someone at the C-level — can propose anything that conflicts with our rules.
+            Throughout the design process, these three rules are the one thing everyone must stick to. That means no one — not even someone at the C-level — can propose anything that conflicts with them.
           </p>
           <div style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", marginTop: 40, marginBottom: 8 }}>
             <img src="assets/ux-david-rota.jpg" alt="David Rota presenting principles" style={{ width: "100%", display: "block" }} />
@@ -679,7 +682,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             Clicks, thoughts, and needs — in one view.
           </h2>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
-            A user journey consists of three sections. In the middle is the user flow — these are the user's clicks. Above it is the user's potential thinking, and below, in green, are their needs. That way, we can easily figure out everything the user needs and how we can build the best possible flow.
+            A user journey is made up of three layers. In the middle is the user flow — the actual clicks. Above it are the user's potential thoughts, and below, in green, are their needs. This way, we can easily map out everything the user needs and design the best possible flow around it.
           </p>
           <img src="assets/ux-user-journey.png" alt="User Journey diagram" style={{ width: "100%", display: "block" }} />
         </div>
@@ -730,8 +733,8 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
             <h1 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.03em", fontSize: "clamp(48px,7vw,88px)", lineHeight: 0.9, margin: "0 0 20px" }}>
               UI &amp;<br />Design<br />systems.
             </h1>
-            <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>
-              Fine art in the digital space. Visual artists that developers simply couldn't do without — and honestly, no one could.
+            <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>Fine art in the digital space. Visual designers are the artists that developers simply can't do without.
+
             </p>
           </div>
           <div className="sp-hero-illo" style={{ borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -745,15 +748,18 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid">
             <div style={{ maxWidth: 600 }}>
-              <div className="bf-tag bf-tag-orange">The evil "art guys"</div>
+              <div className="bf-tag bf-tag-orange">Artists</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 Who even are<br />those two?
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                Once, someone called us "art guys." My former boss, one of the first senior backend developers. He was leading a meeting and wondered out loud who me and my colleague at the time, Goran, even were. Someone answered, "Front-end and designer..." Meaning: art guys.
+                On my very first project, I was working closely with my dear colleague Goran. Our senior team lead — a guy in his late 40s — was running a meeting and didn't even notice there were two new team members in the room. About fifteen minutes in, he wondered out loud, "Who are these two guys?" Someone answered, "Front-end and designer." He replied, "Oh, the artists."
+              </p>
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
+                What the heck? I thought back then. We're not artists, we're developers.
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                Back then, I hated that answer. But honestly, after all these years, it really is true. We are a kind of visual artist that developers simply couldn't do without. In fact, when I really think about it, no one could.
+                Back then, I couldn't understand what he meant. But honestly, after all these years, I've come to realize he was right. We are a kind of visual artist — the kind developers simply can't do without. In fact, no one can.
               </p>
             </div>
             <div style={{
@@ -762,7 +768,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
             }}>
               <div style={{ fontFamily: "Patrick Hand SC", fontSize: 80, color: "var(--orange)", lineHeight: 0.8, marginBottom: 8 }}>"</div>
               <p style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 700, lineHeight: 1.3, color: "#fff", margin: 0 }}>
-                We are a kind of visual artist that developers simply couldn't do without.
+                We are a kind of visual artist — the kind developers simply can't do without.
               </p>
               <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", margin: 0 }}>— Vladimir "Kraja" Krajišnik</p>
             </div>
@@ -780,11 +786,9 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
           <div className="two-col-grid tight" style={{ marginTop: 16 }}>
             <div>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                Every design needs to be attractive, intuitive, and understandable. That goes without saying. For me, cleanness and simplicity are what make a design successful. But the most important thing is balancing your artistic abilities with what's actually feasible.
+                Every design has to be attractive, intuitive, and understandable — Period. For me, cleanness and simplicity are what make a design truly successful. But the most important skill is balancing your artistic ambition with what's actually feasible.
               </p>
-              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                Anyone can draw a rocket that flies, shoots banknotes out of itself, fires off rainbows, while a dog driving the rocket eats a hot dog. But can the front-end developer actually code that? The real question is whether anyone actually needs it.
-              </p>
+
             </div>
             <div>
               <div style={{ background: "#f0f7ff", borderRadius: 20, padding: "clamp(20px,3vw,36px)" }}>
@@ -811,10 +815,10 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
                 Built clean.<br />From day one.
               </h2>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, marginBottom: 14 }}>
-                It's really important to build and maintain a healthy, clean design system from the very beginning. Every element or component in the design system should be useful — both for designers and for developers.
+                It's essential to build and maintain a healthy, clean design system from the very beginning. Every element and component should be useful — for both designers and developers.
               </p>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65 }}>
-                Consistency, of course, is crucial, along with the brand's accompanying visual elements.
+                Consistency is crucial, of course, along with the brand's following visual elements.
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 16 }}>
@@ -881,7 +885,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
               Prototype<br />&amp; Testing.
             </h1>
             <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>
-              The ultimate power that gives you every answer you need. We can't know how a product really works unless we try it out for real.
+              The ultimate power that gives you every answer you need. We can't truly know how a product works until we try it for ourselves.
             </p>
           </div>
           <div className="sp-hero-illo" style={{ borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -895,15 +899,15 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid">
             <div>
-              <div className="bf-tag bf-tag-purple">The last — and most important — thing</div>
+              <div className="bf-tag bf-tag-purple">Last...</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
-                Or the first...<br />depending.
+                ...but not least.
               </h2>
-              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                We can't know how a product really works unless we try it out for real. Visually, we can create anything. But until we actually take what we've created in our hands and start using it, we can't know whether the product is truly good or not.
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>We can't truly know how a product works until we try it for real. Visually, we can create anything — but until we actually hold in our hands what we've built, and start using it, we can't tell whether it's genuinely good.
+
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                Even in print. On a computer, we'll get one feeling. In print, a completely different result. That's why it's important to test every product across every element of its existence.
+                The same goes for print. On screen, it gives you one feeling; in print, a completely different one. That's why it's essential to test every product across every form it takes.
               </p>
             </div>
             <div style={{ borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", aspectRatio: "3/4" }}>
@@ -921,15 +925,15 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
               <img src="assets/proto-image-2.jpg" alt="Real environment testing" style={{ width: "100%", display: "block" }} />
             </div>
             <div>
-              <div className="bf-tag bf-tag-green">The real people in the real environment</div>
+              <div className="bf-tag bf-tag-green">Real people in a real environment.</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 Are we the users?<br />Of course not.
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                We can test the design on ourselves. But we can't know how a user behaves until we actually test it — what they really think while using the product, how they navigate it, do they navigate it at all?
+                We can test a design on ourselves all we want — but we'll never really know how a user behaves until we put it in front of them. What are they actually thinking while using the product? How do they navigate it? Do they navigate it at all?
               </p>
-              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>We can test all of that in a real environment — with real users and the actual product in front of them. Combined with questions and observation, we can come to the answers we need.
-
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
+                The only way to find out is in a real environment, with real users and the actual product in their hands. Combined with the right questions and careful observation, that's how we get the answers we need.
               </p>
             </div>
           </div>
@@ -958,7 +962,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
           </div>
           <div style={{ borderLeft: "3px solid var(--green)", paddingLeft: 24, maxWidth: 680 }}>
             <p style={{ fontSize: 20, fontWeight: 700, color: "#fff", lineHeight: 1.4, margin: 0 }}>
-              That way, we discover potential problems and remove them before production — so we don't waste the most important and most irreversible resource of all: <span style={{ color: "var(--green)" }}>time.</span>
+              That way, we uncover potential problems and resolve them before production — saving the most valuable and most irreversible resource of all: <span style={{ color: "var(--green)" }}>time.</span>
             </p>
           </div>
         </div>
@@ -1010,7 +1014,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
               Brand<br />identities.
             </h1>
             <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>
-              Crafting and polishing visual graphic elements — the first touchpoint with a product that shapes everything people think about a brand.
+              Crafting and refining visual elements — the first touchpoint with a product, and the one that shapes how people visually perceive the brand.
             </p>
           </div>
           <div className="sp-hero-illo" style={{ borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
@@ -1029,13 +1033,10 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
                 More than a logo.<br />It's a feeling.
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                A brand identity is something that reflects a brand, makes it visually distinct and recognizable, and — in combination with all its elements — communicates with people and shapes the impression of the brand itself.
-              </p>
-              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                Brand identity isn't just about the visual feel. It comes through in all the messages and values the brand puts out to people. Through those messages, people get a sense of what kind of brand it really is — relaxed, confident, luxurious, fun.
+                A brand identity is what reflects a brand — what makes it visually distinct and recognizable, and what kind of impression it leaves on people. Together with all its elements, it communicates with the audience and shapes how they feel about the brand.
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                Brand identity even comes through in how employees behave.
+                But brand identity isn't only about the visual side. It comes through in every message and value the brand projects into the world. Through those messages, people sense what kind of brand it really is — relaxed, confident, luxurious, or fun.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 16, paddingTop: 8 }}>
@@ -1066,10 +1067,10 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
             <div>
               <div className="bf-tag" style={{ background: "rgba(255,255,255,.1)", color: "#fff" }}>Rule #1</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,52px)", lineHeight: 1, margin: "0 0 24px", color: "#fff" }}>
-                Consistency goes<br />without saying.
+                Consistency!<br />That's non-negotiable.
               </h2>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65 }}>
-                The same look and feel is something that's shared across every aspect of a product. From the logo on a paper bag to the loading spinner in the app — it all has to feel like one thing.
+                The look and feel have to be the same across every part of a brand. From the logo on a paper bag to the loading spinner in the app — it all has to look unified.
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
