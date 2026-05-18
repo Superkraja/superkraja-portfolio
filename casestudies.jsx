@@ -303,7 +303,7 @@ const CASE_DATA = {
     { label: "Year", value: "2024" },
     { label: "Award", value: "2× Swiss Design 2025" }],
 
-    heroImg: { src: "uploads/Luxury Watch App Hero.jpg", alt: "Luxury Watch App Hero", style: { width: "100%", height: "100%", objectFit: "cover" } },
+    heroImg: { src: "assets/Luxury Watch App Hero.jpg", alt: "Luxury Watch App Hero", style: { width: "100%", height: "100%", objectFit: "cover" } },
     heroImgBg: "#5b5bd6",
     overview: {
       tag: "Overview",
@@ -332,12 +332,12 @@ const CASE_DATA = {
       title: "The features.",
       intro: "We developed several standout features for collectors.",
       steps: [
-      { title: "Digital Collection", img: "uploads/Digital collection.jpg", scrollable: true, desc: "Users could create digital profiles of their own watches, complete with all the necessary documentation in one place — guarantees, manuals, and insurance receipts. For users already registered in the company's system, their collection was prepared in advance and pulled directly from the database." },
-      { title: "Insurance", img: "uploads/Insurance.jpg", scrollable: true, desc: "Users could insure their beloved watch collection directly through the app, giving collectors peace of mind without leaving the platform. One key benefit was the ability to insure multiple watches at once, with the entire process handled inside the app — no need to contact or visit the insurance group directly." },
-      { title: "Sell-to-Company", img: "uploads/Sell to company.jpg", scrollable: true, desc: "Users had the option to sell their watches directly to the company. As part of the flow, users could request an estimation and then choose to accept or reject the offer. Once agreed, they could arrange a shipment or bring it in personally — whichever felt right for them." },
-      { title: "Watch Services", img: "uploads/Watch services.jpg", scrollable: true, desc: "Users could book an appointment to bring their watch in for servicing, ensuring their pieces stayed in pristine condition with the same trusted hands that knew them best." },
-      { title: "Agent Appointments", img: "uploads/Agent Appointments.jpg", scrollable: true, desc: "Users were able to book an appointment with an agent to explore a specific watch or piece of jewelry, turning the discovery process into a personal, guided experience." },
-      { title: "Collection Marketplace", img: "uploads/Collection marketplace.jpg", scrollable: true, desc: "The flagship feature, allowing users to track their entire collection on a dedicated marketplace and stay informed about the value and movement of their pieces." }]
+      { title: "Digital Collection", img: "assets/Digital collection.jpg", scrollable: true, desc: "Users could create digital profiles of their own watches, complete with all the necessary documentation in one place — guarantees, manuals, and insurance receipts. For users already registered in the company's system, their collection was prepared in advance and pulled directly from the database." },
+      { title: "Insurance", img: "assets/Insurance.jpg", scrollable: true, desc: "Users could insure their beloved watch collection directly through the app, giving collectors peace of mind without leaving the platform. One key benefit was the ability to insure multiple watches at once, with the entire process handled inside the app — no need to contact or visit the insurance group directly." },
+      { title: "Sell-to-Company", img: "assets/Sell to company.jpg", scrollable: true, desc: "Users had the option to sell their watches directly to the company. As part of the flow, users could request an estimation and then choose to accept or reject the offer. Once agreed, they could arrange a shipment or bring it in personally — whichever felt right for them." },
+      { title: "Watch Services", img: "assets/Watch services.jpg", scrollable: true, desc: "Users could book an appointment to bring their watch in for servicing, ensuring their pieces stayed in pristine condition with the same trusted hands that knew them best." },
+      { title: "Agent Appointments", img: "assets/Agent Appointments.jpg", scrollable: true, desc: "Users were able to book an appointment with an agent to explore a specific watch or piece of jewelry, turning the discovery process into a personal, guided experience." },
+      { title: "Collection Marketplace", img: "assets/Collection marketplace.jpg", scrollable: true, desc: "The flagship feature, allowing users to track their entire collection on a dedicated marketplace and stay informed about the value and movement of their pieces." }]
 
     },
     recognition: {
@@ -348,8 +348,8 @@ const CASE_DATA = {
       { place: "3rd Prize", category: "User Experience Design" },
       { place: "3rd Prize", category: "Design Overall" }],
       certs: [
-      { src: "uploads/Award-User-experience-small.jpg", alt: "Best of Swiss Apps 2025 – User Experience Bronze" },
-      { src: "uploads/Award-Design-small.jpg", alt: "Best of Swiss Apps 2025 – Design Bronze" }]
+      { src: "assets/Award-User-experience-small.jpg", alt: "Best of Swiss Apps 2025 – User Experience Bronze" },
+      { src: "assets/Award-Design-small.jpg", alt: "Best of Swiss Apps 2025 – Design Bronze" }]
 
 
     },

@@ -208,12 +208,12 @@ function Works({ onOpenCase, onOpenBrand }) {
         <div className="ux-grid">
           {UX_CASES.map((c, i) => {
             const thumbMap = {
-              "luxury-watch": "uploads/Luxury Watch placeholder.jpg",
+              "luxury-watch": "assets/Luxury Watch placeholder.jpg",
               "baby-food": "assets/case-baby-food.jpg",
               "consultation": "assets/case-consulting.jpg",
               "realestate": "assets/realestate-hero.jpg",
               "travel": "assets/case-travel.jpg",
-              "web-ui": "uploads/Interface designs card.jpg"
+              "web-ui": "assets/Interface designs card.jpg"
             };
             const images = [thumbMap[c.id]];
             return (
@@ -302,7 +302,7 @@ function About({ onOpen }) {
         </div>
         <div className="about-hero">
           <div className="about-photo reveal" ref={bgRef} aria-label="Kraja at the desk">
-            <img src="uploads/About-me-new-landing tiny.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
+            <img src="assets/About-me-new-landing tiny.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
           </div>
           <div className="about-copy reveal d1">
             <h2>Why Super?</h2>
@@ -573,18 +573,15 @@ function readNavState() {
 function saveNavState(sub, aboutOpen) {
   try {
     localStorage.setItem(NAV_STATE_KEY, JSON.stringify({ sub, aboutOpen }));
-    // Also save the current hash so we can restore it on next load
     localStorage.setItem(NAV_STATE_KEY + "_hash", window.location.hash || "#");
   } catch (e) {}
 }
 
-// Hash routing helpers — gives every page its own shareable URL
-// e.g. superkraja.com#/case/0  superkraja.com#/spec/1  superkraja.com#/brand/2  superkraja.com#/about
+// Hash routing helpers
 function parseHash() {
   const raw = window.location.hash.replace(/^#\/?/, "");
   if (!raw) return null;
   const parts = raw.split("/");
-  // resolve string IDs → numeric indices
   const resolveSpec  = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = SPECIALTIES.findIndex(s => s.id === v); return i >= 0 ? i : 0; };
   const resolveCase  = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = UX_CASES.findIndex(c => c.id === v); return i >= 0 ? i : 0; };
   const resolveBrand = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = BRANDS.findIndex(b => b.id === v); return i >= 0 ? i : 0; };
@@ -608,11 +605,10 @@ function stateToHash(sub, aboutOpen) {
 
 // --- App root ---
 function App() {
-  // Hash takes priority over localStorage (so shared links always work)
+  // Path takes priority over localStorage (so shared links always work)
   const hashState = parseHash();
   const saved = hashState ? null : readNavState();
 
-  // On fresh load with no hash, restore the last-saved hash so the URL stays in sync
   if (!hashState && !window.location.hash) {
     const savedHash = localStorage.getItem(NAV_STATE_KEY + "_hash");
     if (savedHash && savedHash !== "#") {
@@ -646,12 +642,10 @@ function App() {
   const prevKindRef = useRef(aboutOpen ? "about" : sub.kind);
 
   useEffect(() => {
-    // Skip if this render was triggered BY a popstate (avoid loop)
     if (isHandlingPopState.current) {isHandlingPopState.current = false;return;}
     const newHash = stateToHash(sub, aboutOpen);
     const curKind = aboutOpen ? "about" : sub.kind;
     if (window.location.hash !== newHash) {
-      // Push a new history entry when opening something new; replace otherwise
       if (prevKindRef.current !== curKind && curKind !== null) {
         history.pushState(null, "", newHash);
       } else {

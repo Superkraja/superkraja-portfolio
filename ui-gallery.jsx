@@ -418,7 +418,7 @@ function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
           </div>
         </div>
         <div className="bf-hero-img" style={{ background: "transparent" }}>
-          <ImgSkeleton src="uploads/Interface designs hero images-cebbb555.jpg" alt="Interface designs hero" fetchpriority="high" loading="eager" imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <ImgSkeleton src="assets/Interface designs hero images-cebbb555.jpg" alt="Interface designs hero" fetchpriority="high" loading="eager" imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 
