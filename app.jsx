@@ -631,35 +631,7 @@ function App() {
     document.body.style.overflow = overlayOpen ? "hidden" : "";
   }, [overlayOpen]);
 
-  // — Hash routing: keep URL in sync with open state ————————————————
-  const isHandlingPopState = useRef(false);
-  const prevKindRef = useRef(aboutOpen ? "about" : sub.kind);
-
-  useEffect(() => {
-    if (isHandlingPopState.current) {isHandlingPopState.current = false;return;}
-    const newHash = stateToHash(sub, aboutOpen);
-    const curKind = aboutOpen ? "about" : sub.kind;
-    if (window.location.hash !== newHash) {
-      if (prevKindRef.current !== curKind && curKind !== null) {
-        history.pushState(null, "", newHash);
-      } else {
-        history.replaceState(null, "", newHash);
-      }
-    }
-    prevKindRef.current = curKind;
-  }, [sub, aboutOpen]);
-
-  useEffect(() => {
-    const onPop = () => {
-      isHandlingPopState.current = true;
-      const state = parseHash();
-      if (state) {setSub(state.sub);setAboutOpen(state.aboutOpen);} else
-      {setSub((s) => ({ ...s, kind: null }));setAboutOpen(false);}
-    };
-    window.addEventListener("popstate", onPop);
-    return () => window.removeEventListener("popstate", onPop);
-  }, []);
-  // ——————————————————————————————————————————————————————————————————
+  // No URL routing — always show homepage on fresh visit, navigate via state only
 
   const openSpec = (specId, storyIdx = 0) => {
     const idx = SPECIALTIES.findIndex((s) => s.id === specId);
