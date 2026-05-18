@@ -607,12 +607,11 @@ function stateToHash(sub, aboutOpen) {
 function App() {
   // Path takes priority over localStorage (so shared links always work)
   const hashState = parseHash();
-  const saved = hashState ? null : readNavState();
 
   // Always start at homepage when visiting the root URL directly
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
-  const [sub, setSub] = useState(hashState ? hashState.sub : saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
-  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : saved ? !!saved.aboutOpen : false);
+  const [sub, setSub] = useState(hashState ? hashState.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
+  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : false);
   const active = useScrollSpy(NAV_SECTIONS.map((n) => n.id));
   useRevealOnScroll([]);
 
