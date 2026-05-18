@@ -360,22 +360,91 @@ function DesktopFrame({ id, placeholder, gallery = false }) {
 // ── Gallery data ─────────────────────────────────────────────────────────────
 const UI_GALLERY_ITEMS = [
   { id:"ui-p1", title:"NFT Bidding Tool",               type:"Landing page & desktop app",
+    images:["assets/slot-ui-p1-1.webp","assets/slot-ui-p1-2.webp","assets/slot-ui-p1-3.webp","assets/slot-ui-p1-4.webp","assets/slot-ui-p1-5.webp"],
     desc:"A smart bidding companion built for NFT collectors and traders. Users can automate bids across their favorite collections and stay one step ahead by tracking and managing outbids in real time." },
   { id:"ui-p2", title:"Access Management App",          type:"Full brand identity",
+    images:["assets/slot-ui-p2-1.webp","assets/slot-ui-p2-2.webp","assets/slot-ui-p2-3.webp","assets/slot-ui-p2-4.webp","assets/slot-ui-p2-5.webp"],
     desc:"A secure platform that gives business owners full control over employee access. Managers can confidently manage permissions and protect company apps, all from one streamlined interface." },
   { id:"ui-p3", title:"IT Solutions",                   type:"Website",
+    images:["assets/slot-ui-p3-1.jpg"],
     desc:"A landing page designed for an all-in-one IT solutions company. From everyday support to complete IT management, the design reflects the full scope of services they bring to modern businesses." },
   { id:"ui-p4", title:"HR Overview App",                type:"Dashboard",
+    images:["assets/slot-ui-p4-1.webp"],
     desc:"A dashboard built to make HR work effortless. Teams can track employee statuses, manage key information at a glance, and quickly report workplace injuries, all in one centralized tool." },
   { id:"ui-p5", title:"Restaurant",                     type:"Landing page",
+    images:["assets/slot-ui-p5-1.jpg"],
     desc:"A landing page concept designed for a restaurant located in the building where I was working." },
   { id:"ui-p6", title:"Football Players Marketplace",   type:"Website",
+    images:["assets/slot-ui-p6-1.webp"],
     desc:"A website built for fans and managers to follow professional football players from the Finnish Football Association League. Tracking stats and monitor performance." },
   { id:"ui-p7", title:"Accounting Platform",            type:"Landing page",
+    images:["assets/slot-ui-p7-1.jpg","assets/slot-ui-p7-2.jpg"],
     desc:"A platform designed to simplify the way companies handle invoices and customer debt. Clear, modern, and built to make financial workflows easier to manage." },
-  { id:"ui-p8", title:"Bracelet Shop",                         type:"E-commerce website",
+  { id:"ui-p8", title:"Bracelet Shop",                  type:"E-commerce website",
+    images:["assets/slot-ui-p8-1.png"],
     desc:"An e-commerce website for a handcrafted bracelet brand. Built around product discovery and storytelling, with a focus on gemstone details and a clean ordering experience." },
 ];
+
+// ── StaticGallery: renders a project's images with prev/next + lightbox ─────
+function StaticGallery({ images, alt }) {
+  const [idx, setIdx] = React.useState(0);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const touchStartX = React.useRef(null);
+  const safe = images.length > 0 ? Math.min(idx, images.length - 1) : 0;
+  const canPrev = idx > 0;
+  const canNext = idx < images.length - 1;
+  const hasMany = images.length > 1;
+
+  const vpHandlers = hasMany ? {
+    onTouchStart: e => { touchStartX.current = e.touches[0].clientX; },
+    onTouchEnd: e => {
+      if (touchStartX.current === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX.current;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) setIdx(i => Math.min(images.length - 1, i + 1));
+        else setIdx(i => Math.max(0, i - 1));
+      }
+      touchStartX.current = null;
+    }
+  } : {};
+
+  const viewport = (
+    <div className="wi-desktop-viewport" {...vpHandlers}>
+      <div className="wi-desktop-filled">
+        <ImgSkeleton
+          src={images[safe]}
+          alt={alt}
+          imgStyle={{ width: '100%', height: 'auto', display: 'block', cursor: 'zoom-in' }}
+          onClick={() => setLightboxOpen(true)}
+        />
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="wi-desktop-frame">
+      {hasMany ? (
+        <div className="wi-slider-row">
+          <button
+            className="wi-slider-arrow"
+            style={{ visibility: canPrev ? 'visible' : 'hidden' }}
+            onClick={() => setIdx(i => Math.max(0, i - 1))}
+          >‹</button>
+          {viewport}
+          <button
+            className="wi-slider-arrow"
+            style={{ visibility: canNext ? 'visible' : 'hidden' }}
+            onClick={() => setIdx(i => Math.min(images.length - 1, i + 1))}
+          >›</button>
+        </div>
+      ) : viewport}
+
+      {lightboxOpen && (
+        <WiLightbox images={images} startIndex={safe} onClose={() => setLightboxOpen(false)} />
+      )}
+    </div>
+  );
+}
 
 // ── Page component ───────────────────────────────────────────────────────────
 function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
@@ -418,7 +487,7 @@ function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
           </div>
         </div>
         <div className="bf-hero-img" style={{ background: "transparent" }}>
-          <ImgSkeleton src="assets/Interface designs hero images-cebbb555.jpg" alt="Interface designs hero" fetchpriority="high" loading="eager" imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <ImgSkeleton src="assets/slot-wi-hero.jpg" alt="Interface designs hero" fetchpriority="high" loading="eager" imgStyle={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </div>
       </div>
 
@@ -429,7 +498,7 @@ function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
             {UI_GALLERY_ITEMS.map((item, i) => (
               <div className={"bf-step wi-step " + (i % 2 === 1 ? "reverse" : "")} key={item.id}>
                 <div className="bf-step-phone wi-step-img">
-                  <DesktopFrame id={item.id} placeholder={item.title} gallery={true} />
+                  <StaticGallery images={item.images} alt={item.title} />
                 </div>
                 <div className="bf-step-text">
                   <h3>{item.title}</h3>
