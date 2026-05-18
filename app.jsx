@@ -29,11 +29,22 @@ function useScrollSpy(ids) {
 function useRevealOnScroll(deps = []) {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
+    // First pass: reveal anything already in viewport
+    els.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add("visible");
+      }
+    });
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {if (e.isIntersecting) e.target.classList.add("visible");});
-    }, { threshold: 0.12 });
+    }, { threshold: 0.08, rootMargin: "0px 0px -8% 0px" });
     els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    // Safety net: long delay so scroll animations play naturally first
+    const safetyTimer = setTimeout(() => {
+      document.querySelectorAll(".reveal:not(.visible)").forEach((el) => el.classList.add("visible"));
+    }, 8000);
+    return () => { io.disconnect(); clearTimeout(safetyTimer); };
     // eslint-disable-next-line
   }, deps);
 }
@@ -196,11 +207,25 @@ function Works({ onOpenCase, onOpenBrand }) {
         <h3 className="works-title reveal">User experience cases</h3>
         <div className="ux-grid">
           {UX_CASES.map((c, i) => {
-            const images = ["assets/case-baby-food.jpg", "assets/case-consulting.jpg", "assets/case-real-estate.jpg", "assets/case-travel.jpg"];
+            const thumbMap = {
+              "luxury-watch": "uploads/Luxury Watch placeholder.jpg",
+              "baby-food": "assets/case-baby-food.jpg",
+              "consultation": "assets/case-consulting.jpg",
+              "realestate": "assets/realestate-hero.jpg",
+              "travel": "assets/case-travel.jpg",
+              "web-ui": "uploads/Interface designs card.jpg"
+            };
+            const images = [thumbMap[c.id]];
             return (
               <div key={c.id} className={"ux-card reveal d" + (i + 1)} onClick={() => onOpenCase(i)}>
                 <div className="ux-thumb">
-                  <img src={images[i]} alt={c.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  {images[0] ?
+                  <ImgSkeleton src={images[0]} alt={c.title} imgStyle={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" /> :
+                  <div style={{ width: '100%', height: '100%', background: '#1c1c1e', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="18" y="4" width="16" height="6" rx="3" fill="rgba(255,255,255,0.2)"/><rect x="10" y="10" width="32" height="36" rx="8" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2"/><circle cx="26" cy="28" r="8" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2"/><line x1="26" y1="28" x2="26" y2="22" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round"/><line x1="26" y1="28" x2="30" y2="28" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5" strokeLinecap="round"/><rect x="18" y="42" width="16" height="6" rx="3" fill="rgba(255,255,255,0.2)"/></svg>
+                    <span style={{ fontFamily: "'Patrick Hand SC',cursive", fontSize: 13, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em' }}>Coming soon</span>
+                  </div>
+                  }
                 </div>
                 <div className="ux-body">
                   <h3>{c.title}</h3>
@@ -229,7 +254,7 @@ function Works({ onOpenCase, onOpenBrand }) {
                 onMouseLeave={() => setHoveredBrand(null)}>
                 
                 <div className="brand-logo" style={{ position: 'relative' }}>
-                  <img src={images[i]} alt={b.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <ImgSkeleton src={images[i]} alt={b.name} imgStyle={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
                   {b.label &&
                   <div style={{
                     position: 'absolute', inset: 0,
@@ -277,7 +302,7 @@ function About({ onOpen }) {
         </div>
         <div className="about-hero">
           <div className="about-photo reveal" ref={bgRef} aria-label="Kraja at the desk">
-            <img src="assets/me-2-tiny.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
+            <img src="uploads/About-me-new-landing tiny.jpg" alt="Vladimir Kraja Krajišnik at work" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center' }} />
           </div>
           <div className="about-copy reveal d1">
             <h2>Why Super?</h2>
@@ -475,7 +500,12 @@ function SpecSubpage({ open, onClose, specIdx, stories, index, setIndex, accent 
   const [fading, setFading] = useState(false);
 
   useEffect(() => {
-    if (open && scrollRef.current) scrollRef.current.scrollTop = 0;
+    if (open) {
+      // Use rAF to ensure DOM is fully painted before resetting scroll
+      requestAnimationFrame(() => {
+        if (scrollRef.current) scrollRef.current.scrollTop = 0;
+      });
+    }
   }, [open]);
 
   useEffect(() => {
@@ -543,6 +573,8 @@ function readNavState() {
 function saveNavState(sub, aboutOpen) {
   try {
     localStorage.setItem(NAV_STATE_KEY, JSON.stringify({ sub, aboutOpen }));
+    // Also save the current hash so we can restore it on next load
+    localStorage.setItem(NAV_STATE_KEY + "_hash", window.location.hash || "#");
   } catch (e) {}
 }
 
@@ -552,22 +584,25 @@ function parseHash() {
   const raw = window.location.hash.replace(/^#\/?/, "");
   if (!raw) return null;
   const parts = raw.split("/");
+  // resolve string IDs → numeric indices
+  const resolveSpec  = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = SPECIALTIES.findIndex(s => s.id === v); return i >= 0 ? i : 0; };
+  const resolveCase  = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = UX_CASES.findIndex(c => c.id === v); return i >= 0 ? i : 0; };
+  const resolveBrand = v => { const n = parseInt(v); if (!isNaN(n)) return n; const i = BRANDS.findIndex(b => b.id === v); return i >= 0 ? i : 0; };
   const kind = parts[0] || null;
-  const idx = parseInt(parts[1], 10);
-  const safeIdx = Number.isFinite(idx) ? idx : 0;
-  if (kind === "spec") return { sub: { kind: "spec", specIdx: safeIdx, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
-  if (kind === "case") return { sub: { kind: "case", specIdx: 0, storyIdx: 0, caseIdx: safeIdx, brandIdx: 0 }, aboutOpen: false };
-  if (kind === "brand") return { sub: { kind: "brand", specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: safeIdx }, aboutOpen: false };
-  if (kind === "about") return { sub: { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: true };
+  const val = parts[1] || "0";
+  if (kind === "spec")  return { sub: { kind: "spec",  specIdx:  resolveSpec(val),  storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
+  if (kind === "case")  return { sub: { kind: "case",  specIdx: 0, storyIdx: 0, caseIdx:  resolveCase(val),  brandIdx: 0 }, aboutOpen: false };
+  if (kind === "brand") return { sub: { kind: "brand", specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: resolveBrand(val) }, aboutOpen: false };
+  if (kind === "about") return { sub: { kind: null,    specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: true };
   return null;
 }
 
 function stateToHash(sub, aboutOpen) {
   if (aboutOpen) return "#/about";
   if (!sub.kind) return "#";
-  if (sub.kind === "spec") return `#/spec/${sub.specIdx}`;
-  if (sub.kind === "case") return `#/case/${sub.caseIdx}`;
-  if (sub.kind === "brand") return `#/brand/${sub.brandIdx}`;
+  if (sub.kind === "spec") return `#/spec/${(SPECIALTIES[sub.specIdx] || {}).id || sub.specIdx}`;
+  if (sub.kind === "case") return `#/case/${(UX_CASES[sub.caseIdx] || {}).id || sub.caseIdx}`;
+  if (sub.kind === "brand") return `#/brand/${(BRANDS[sub.brandIdx] || {}).id || sub.brandIdx}`;
   return "#";
 }
 
@@ -576,6 +611,14 @@ function App() {
   // Hash takes priority over localStorage (so shared links always work)
   const hashState = parseHash();
   const saved = hashState ? null : readNavState();
+
+  // On fresh load with no hash, restore the last-saved hash so the URL stays in sync
+  if (!hashState && !window.location.hash) {
+    const savedHash = localStorage.getItem(NAV_STATE_KEY + "_hash");
+    if (savedHash && savedHash !== "#") {
+      history.replaceState(null, "", savedHash);
+    }
+  }
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
   const [sub, setSub] = useState(hashState ? hashState.sub : saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
   const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : saved ? !!saved.aboutOpen : false);

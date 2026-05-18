@@ -38,7 +38,11 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
 
   // Scroll to top when opening
   useEffect(() => {
-    if (open && scrollRef.current) scrollRef.current.scrollTop = 0;
+    if (open) {
+      requestAnimationFrame(() => {
+        if (scrollRef.current) scrollRef.current.scrollTop = 0;
+      });
+    }
   }, [open]);
 
   // Fade out → preload → swap → fade in
@@ -107,7 +111,7 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
         <button className="back-btn" onClick={onClose} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff" }}>
           <Ico name="arrow-left" size={16} /> Back to home
         </button>
-        <div style={{ fontFamily: "Patrick Hand SC", fontSize: 22, color: "rgba(255,255,255,0.5)" }} className="sub-bar-title">
+        <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "rgba(255,255,255,0.5)" }} className="sub-bar-title">
           {brand.name}
         </div>
         <div className="sub-nav">

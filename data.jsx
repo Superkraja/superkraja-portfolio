@@ -66,6 +66,13 @@ const SPECIALTIES = [
 ];
 
 const UX_CASES = [
+  { id:"luxury-watch", cat:"UX case", title:"Luxury Watch App", desc:"A mobile app for watch enthusiasts and passionate collectors.",
+    lede:"Designed from scratch — including a full design system — for one of the world's most famous luxury watch retailers. Winner of two 3rd prizes at the 2025 Swiss Design Competition.",
+    facts:[["Role","Lead Product Designer"],["Year","2024"],["Award","Swiss Design 2025"]],
+    sections:[
+      ["Overview","A mobile app for watch enthusiasts and passionate collectors, designed from scratch with a full design system."],
+      ["Key features","Digital Collection, Insurance, Sell-to-Company, Watch Services, Agent Appointments, and Collection Marketplace Tracking."],
+    ]},
   { id:"baby-food", cat:"UX case", title:"Baby food", desc:"A monthly food subscription service for newborns.", illo:"caseBaby",
     lede:"Parents of newborns are exhausted, skeptical, and extremely online. The product had to earn trust in 60 seconds and keep it for 12 months.",
     facts:[["Role","Lead Product Designer"],["Team","4"],["Duration","6 months"],["Year","2024"]],
@@ -98,6 +105,7 @@ const UX_CASES = [
       ["What I designed","A feed-first structure where every destination can be saved with one tap, and 'planning' emerges from the saved pile."],
       ["Outcome","7-day retention up 2.3x versus the previous flow."],
     ]},
+  { id:"web-ui", cat:"UI Design", title:"Interface designs", desc:"Landing pages, dashboards and mobile apps with a focus on UI interactions.", illo:"caseUI" },
 ];
 
 const BRANDS = [

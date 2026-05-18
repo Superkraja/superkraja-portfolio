@@ -1,0 +1,405 @@
+// Interface designs — desktop frame with scrollable viewport
+
+// ── Shared sidecar helpers (same .image-slots.state.json as image-slot) ─────
+const _DF_FILE = '.image-slots.state.json';
+const _dfCache = {};
+let _dfLoadP = null;
+
+function _dfLoad() {
+  if (_dfLoadP) return _dfLoadP;
+  _dfLoadP = fetch(_DF_FILE).
+  then((r) => r.ok ? r.json() : {}).
+  catch(() => ({})).
+  then((j) => {Object.assign(_dfCache, j);return _dfCache;});
+  return _dfLoadP;
+}
+
+function _dfGet(id) {
+  const v = _dfCache[id];
+  if (!v) return null;
+  return typeof v === 'string' ? v : v.src || null;
+}
+
+function _dfGetImages(id) {
+  const v = _dfCache[id];
+  if (!v) return [];
+  if (typeof v === 'string') return [v];
+  if (v.src) return [v.src];
+  if (Array.isArray(v.images)) return v.images;
+  return [];
+}
+
+function _dfSet(id, src) {
+  if (src === null) {delete _dfCache[id];} else
+  {_dfCache[id] = { src };}
+  const json = JSON.stringify(_dfCache);
+  try {if (window.omelette && window.omelette.writeFile) window.omelette.writeFile(_DF_FILE, json);} catch (e) {}
+}
+
+function _dfSetImages(id, images) {
+  if (!images || images.length === 0) {delete _dfCache[id];} else
+  {_dfCache[id] = { images };}
+  const json = JSON.stringify(_dfCache);
+  try {if (window.omelette && window.omelette.writeFile) window.omelette.writeFile(_DF_FILE, json);} catch (e) {}
+}
+
+function _dfCompress(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 1400;
+        let w = img.naturalWidth,h = img.naturalHeight;
+        if (w > MAX) {h = Math.round(h * MAX / w);w = MAX;}
+        const canvas = document.createElement('canvas');
+        canvas.width = w;canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/webp', 0.85));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// ── Lightbox ─────────────────────────────────────────────────────────────────
+function WiLightbox({ images, startIndex, onClose }) {
+  const [idx, setIdx] = React.useState(startIndex);
+  const [zoom, setZoom] = React.useState(1);
+  const imgWrapRef = React.useRef(null);
+  const touchStartX = React.useRef(null);
+
+  // Reset zoom on slide change
+  React.useEffect(() => {setZoom(1);}, [idx]);
+
+  // Non-passive wheel zoom on the image wrap
+  React.useEffect(() => {
+    const el = imgWrapRef.current;
+    if (!el) return;
+    const onWheel = (e) => {
+      e.preventDefault();
+      setZoom((z) => Math.min(4, Math.max(0.25, parseFloat((z - e.deltaY * 0.002).toFixed(2)))));
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+  }, []);
+
+  // Keyboard navigation
+  React.useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') setIdx((i) => Math.max(0, i - 1));else
+      if (e.key === 'ArrowRight') setIdx((i) => Math.min(images.length - 1, i + 1));else
+      if (e.key === 'Escape') onClose();else
+      if (e.key === '=' || e.key === '+') setZoom((z) => Math.min(4, parseFloat((z + 0.25).toFixed(2))));else
+      if (e.key === '-') setZoom((z) => Math.max(0.25, parseFloat((z - 0.25).toFixed(2))));
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [images.length, onClose]);
+
+  const go = (dir) => setIdx((i) => Math.min(images.length - 1, Math.max(0, i + dir)));
+
+  return ReactDOM.createPortal(
+    <div className="wi-lb-overlay" onClick={onClose}
+    onTouchStart={(e) => {touchStartX.current = e.touches[0].clientX;}}
+    onTouchEnd={(e) => {
+      if (touchStartX.current === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX.current;
+      if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+      touchStartX.current = null;
+    }}>
+      
+      {/* Close */}
+      <button className="wi-lb-close" onClick={onClose}>✕</button>
+
+      {/* Zoom controls */}
+      <div className="wi-lb-zoom-btns" onClick={(e) => e.stopPropagation()}>
+        <button onClick={() => setZoom((z) => Math.min(4, parseFloat((z + 0.25).toFixed(2))))}>+</button>
+        <span>{Math.round(zoom * 100)}%</span>
+        <button onClick={() => setZoom((z) => Math.max(0.25, parseFloat((z - 0.25).toFixed(2))))}>−</button>
+      </div>
+
+      {/* Prev / Next */}
+      {images.length > 1 && idx > 0 &&
+      <button className="wi-lb-prev" onClick={(e) => {e.stopPropagation();go(-1);}}>‹</button>
+      }
+      {images.length > 1 && idx < images.length - 1 &&
+      <button className="wi-lb-next" onClick={(e) => {e.stopPropagation();go(1);}}>›</button>
+      }
+
+      {/* Image */}
+      <div className="wi-lb-img-wrap" ref={imgWrapRef} onClick={(e) => e.stopPropagation()}>
+        <img
+          src={images[idx]}
+          className="wi-lb-img"
+          style={{ transform: `scale(${zoom})` }}
+          draggable={false}
+          alt="" />
+        
+      </div>
+
+      {/* Bottom dots */}
+      {images.length > 1 &&
+      <div className="wi-lb-dots-bar" onClick={(e) => e.stopPropagation()}>
+          {images.map((_, i) =>
+        <button key={i} className={"wi-lb-dot" + (i === idx ? " active" : "")}
+        onClick={() => {setIdx(i);setZoom(1);}} />
+        )}
+        </div>
+      }
+
+      {/* Counter */}
+      <div className="wi-lb-counter">{idx + 1} / {images.length}</div>
+    </div>,
+    document.body
+  );
+}
+
+// ── DesktopFrame component ───────────────────────────────────────────────────
+function DesktopFrame({ id, placeholder, gallery = false }) {
+  const [images, setImages] = React.useState([]);
+  const [slideIdx, setSlideIdx] = React.useState(0);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const touchStartX = React.useRef(null);
+
+  React.useEffect(() => {
+    _dfLoad().then(() => {
+      if (gallery) {
+        setImages(_dfGetImages(id));
+      } else {
+        const src = _dfGet(id);
+        setImages(src ? [src] : []);
+      }
+    });
+  }, [id, gallery]);
+
+  const handleDrop = async (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const files = [...(e.dataTransfer.files || [])].filter((f) => f.type.startsWith('image/'));
+    if (!files.length) return;
+    setLoading(true);
+    const newSrcs = await Promise.all(files.map(_dfCompress));
+    if (gallery) {
+      const updated = [...images, ...newSrcs];
+      _dfSetImages(id, updated);
+      setImages(updated);
+      setSlideIdx(updated.length - 1);
+    } else {
+      _dfSet(id, newSrcs[0]);
+      setImages([newSrcs[0]]);
+    }
+    setLoading(false);
+  };
+
+  const handleClear = (e) => {
+    e.stopPropagation();
+    if (gallery) {_dfSetImages(id, []);} else {_dfSet(id, null);}
+    setImages([]);
+    setSlideIdx(0);
+  };
+
+  const hasImages = images.length > 0;
+  const safe = images.length > 0 ? Math.min(slideIdx, images.length - 1) : 0;
+
+  const vpHandlers = {
+    onDrop: handleDrop,
+    onDragOver: (e) => {e.preventDefault();setIsDragging(true);},
+    onDragLeave: () => setIsDragging(false),
+    onTouchStart: hasImages && gallery ? (e) => {touchStartX.current = e.touches[0].clientX;} : undefined,
+    onTouchEnd: hasImages && gallery ? (e) => {
+      if (touchStartX.current === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX.current;
+      if (Math.abs(dx) > 40) {
+        if (dx < 0) setSlideIdx((i) => Math.min(images.length - 1, i + 1));else
+        setSlideIdx((i) => Math.max(0, i - 1));
+      }
+      touchStartX.current = null;
+    } : undefined
+  };
+
+  const viewportInner =
+  <React.Fragment>
+      {loading &&
+    <div className="wi-desktop-loading">
+          <div className="wi-loading-dot"></div>
+        </div>
+    }
+      {!loading && hasImages &&
+    <div className="wi-desktop-filled">
+          <img
+        src={images[safe]}
+        alt={placeholder}
+        style={{ width: '100%', height: 'auto', display: 'block', cursor: gallery ? 'zoom-in' : 'default' }}
+        onClick={gallery ? () => setLightboxOpen(true) : undefined}
+        draggable={false} />
+      
+          <button className="wi-desktop-clear" onClick={handleClear} title="Remove">✕</button>
+        </div>
+    }
+      {!loading && !hasImages &&
+    <div className="wi-desktop-empty">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect x="2" y="2" width="32" height="32" rx="5" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M7 26L14 17l5 6 4-4 6 7" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+            <circle cx="12" cy="12" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+          <span>{placeholder || 'Drop a screenshot'}</span>
+          <small>{gallery ? 'drop multiple images for a slider' : 'or click to browse'}</small>
+        </div>
+    }
+    </React.Fragment>;
+
+
+  const canPrev = hasImages && images.length > 1 && safe > 0;
+  const canNext = hasImages && images.length > 1 && safe < images.length - 1;
+
+  return (
+    <div className="wi-desktop-frame">
+      {gallery ?
+      <div className="wi-slider-row" style={{ color: "rgba(255, 255, 255, 0)" }}>
+          {/* Prev arrow — outside viewport, visibility keeps layout stable */}
+          <button
+          className="wi-slider-arrow"
+          style={{ visibility: canPrev ? 'visible' : 'hidden' }}
+          onClick={() => setSlideIdx((i) => Math.max(0, i - 1))}>
+          ‹</button>
+
+          <div className={"wi-desktop-viewport" + (isDragging ? " wi-drag-over" : "")} {...vpHandlers}>
+            {viewportInner}
+          </div>
+
+          {/* Next arrow — outside viewport */}
+          <button
+          className="wi-slider-arrow"
+          style={{ visibility: canNext ? 'visible' : 'hidden' }}
+          onClick={() => setSlideIdx((i) => Math.min(images.length - 1, i + 1))}>
+          ›</button>
+        </div> :
+
+      <div className={"wi-desktop-viewport" + (isDragging ? " wi-drag-over" : "")} {...vpHandlers}>
+          {viewportInner}
+        </div>
+      }
+
+      {/* Dots pager — below, gallery + multi-image only */}
+      {gallery && images.length > 1 &&
+      <div className="wi-dots-pager">
+          {images.map((_, i) =>
+        <button key={i} className={"wi-dot" + (i === safe ? " active" : "")} onClick={() => setSlideIdx(i)} />
+        )}
+        </div>
+      }
+
+      {lightboxOpen && images.length > 0 &&
+      <WiLightbox images={images} startIndex={safe} onClose={() => setLightboxOpen(false)} />
+      }
+    </div>);
+
+}
+
+// ── Gallery data ─────────────────────────────────────────────────────────────
+const UI_GALLERY_ITEMS = [
+{ id: "g1", title: "SaaS Landing Page", type: "Landing page",
+  desc: "A conversion-focused landing page for a B2B project management tool. The hero anchors around an animated product preview; below it, a three-column feature grid and a social-proof stripe carry the user toward a trial CTA." },
+{ id: "g2", title: "Analytics Dashboard", type: "Dashboard",
+  desc: "A real-time analytics view designed for marketing teams. Line charts, bar breakdowns, and a heatmap calendar are arranged in a scannable grid, with a persistent left sidebar for filter controls." },
+{ id: "g3", title: "Mobile Banking Home", type: "Mobile app",
+  desc: "The home screen of a banking application. Account balance, recent transactions, and quick-action buttons are layered into a scrollable card stack sized for one-thumb navigation." },
+{ id: "g4", title: "E-commerce Product Page", type: "Landing page",
+  desc: "A product detail page for a premium fashion brand. A full-bleed image gallery on the left balances tightly edited product info and a persistent purchase action on the right." },
+{ id: "g5", title: "HR Overview Dashboard", type: "Dashboard",
+  desc: "An internal dashboard for HR teams tracking headcount, attrition, and team growth. The most time-sensitive numbers are the largest elements on the page." },
+{ id: "g6", title: "Travel App Explore", type: "Mobile app",
+  desc: "A destination discovery screen for a travel app. Horizontal card swipes handle browsing; full-bleed photography carries the emotional weight while structural UI stays minimal." },
+{ id: "g7", title: "Agency Portfolio Home", type: "Landing page",
+  desc: "A homepage for a creative studio built around full-viewport sections with parallax transitions. Each section introduces a single service through one bold visual and one concise headline." },
+{ id: "g8", title: "Finance Summary", type: "Dashboard",
+  desc: "A personal finance tracker showing spending trends, upcoming bills, and savings goals. The visual language is intentionally calm — designed to reduce financial anxiety rather than amplify it." },
+{ id: "g9", title: "Onboarding Wizard", type: "Landing page",
+  desc: "A multi-step onboarding flow for a SaaS product. Each screen is stripped to a single question or decision, with progress clearly communicated. The final step delivers a personalized setup summary." },
+{ id: "g10", title: "CRM Contact Detail", type: "Dashboard",
+  desc: "The contact view inside a CRM. Communication history, deal stage, and contact metadata share a three-column layout so every piece of context is visible without scrolling." },
+{ id: "g11", title: "Food Delivery Home", type: "Mobile app",
+  desc: "A restaurant discovery screen for a food delivery app. Filters, categories, and promoted restaurants are stacked in a pattern optimized for high completion rates with the fewest taps." },
+{ id: "g12", title: "Event Landing Page", type: "Landing page",
+  desc: "A landing page for a design conference. A bold typographic hero anchors above the fold; a sticky registration CTA follows the scroll. Speaker cards and a schedule section close the page." },
+{ id: "g13", title: "Project Management Board", type: "Dashboard",
+  desc: "A Kanban board view for a project management tool. Card density, swimlane labels, and drag affordances are calibrated for efficiency on large displays without visual noise." },
+{ id: "g14", title: "Real Estate Listing", type: "Landing page",
+  desc: "A property listing page with a split-screen layout: image gallery on the left, key facts and contact form on the right. Designed to support both quick scan and careful reading." },
+{ id: "g15", title: "Settings & Profile", type: "Dashboard",
+  desc: "A user settings view with a section-based layout. Fields are editable inline rather than on a separate edit screen, cutting the navigational steps needed to make a simple change." }];
+
+
+// ── Page component ───────────────────────────────────────────────────────────
+function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
+  const count = stories ? stories.length : 0;
+
+  return (
+    <React.Fragment>
+      {/* Nav bar */}
+      <div className="sub-bar">
+        <button className="back-btn" onClick={onClose}>
+          <Ico name="arrow-left" size={16} /> Back to home
+        </button>
+        <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "var(--muted)" }} className="sub-bar-title">
+          Interface designs
+        </div>
+        <div className="sub-nav">
+          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+            <Ico name="arrow-left" size={16} />
+          </button>
+          <span className="sub-idx">
+            {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+          </span>
+          <button aria-label="Next" disabled={index === count - 1} onClick={() => setIndex(index + 1)}>
+            <Ico name="arrow-right" size={16} />
+          </button>
+        </div>
+      </div>
+
+      {/* Hero — single image, no gallery */}
+      <div className="bf-hero">
+        <div className="bf-hero-text">
+          <div className="bf-eyebrow">UI Design</div>
+          <h1>Interface<br />designs.</h1>
+          <p className="lede">
+            These are all my works from the past that I have been working on. I was mostly focusing here on the UI interactions.
+          </p>
+          <div className="bf-facts">
+            <div className="bf-fact"><small>Type</small><strong>Landing pages &amp; dashboards</strong></div>
+            <div className="bf-fact"><small>Focus</small><strong>UI interactions</strong></div>
+            <div className="bf-fact"><small>Projects</small><strong>15</strong></div>
+          </div>
+        </div>
+        <div className="bf-hero-img" style={{ background: "var(--paper)", overflow: "hidden" }}>
+          <DesktopFrame id="wi-hero" placeholder="Hero screenshot" />
+        </div>
+      </div>
+
+      {/* Alternating steps — gallery={true} enables slider + lightbox */}
+      <div className="bf-section">
+        <div className="bf-wrap">
+          <div className="bf-steps">
+            {UI_GALLERY_ITEMS.map((item, i) =>
+            <div className={"bf-step wi-step " + (i % 2 === 1 ? "reverse" : "")} key={item.id}>
+                <div className="bf-step-phone wi-step-img">
+                  <DesktopFrame id={item.id} placeholder={item.title} gallery={true} />
+                </div>
+                <div className="bf-step-text">
+                  <h3>{item.title}</h3>
+                  <div className="wi-type-tag">{item.type}</div>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </React.Fragment>);
+
+}

@@ -721,7 +721,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/ux-illustration.png" alt="UX Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
+            <ImgSkeleton src="uploads/Ux Illusttration.png" alt="UX Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
           </div>
         </div>
       </div>
@@ -747,8 +747,9 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
       {/* SECTION 2: Strategy */}
       <div className="bf-section">
         <div className="bf-wrap">
-          <div style={{ maxWidth: 760 }}>
-            <div className="bf-tag bf-tag-purple">Strategy, or how it's built</div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }} className="sp-strategy-grid">
+            <div>
+              <div className="bf-tag bf-tag-purple">Strategy, or how it's built</div>
             <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(32px,4vw,52px)", lineHeight: 1, margin: "0 0 20px" }}>
               Every project needs a different approach.
             </h2>
@@ -761,6 +762,10 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
               Sometimes you need to create a completely new experience, sometimes you need to improve an existing one, and sometimes you don't even know who your user is — which, more often than not, is the case. That's why we need the right approach and strategy, tailored to the actual need.
             </p>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <ImgSkeleton src="assets/ux-illustration.png" alt="UX Strategy illustration" loading="lazy" imgStyle={{ width: "100%", height: "auto", objectFit: "contain" }} />
+            </div>
           </div>
         </div>
       </div>
