@@ -609,12 +609,7 @@ function App() {
   const hashState = parseHash();
   const saved = hashState ? null : readNavState();
 
-  if (!hashState && !window.location.hash) {
-    const savedHash = localStorage.getItem(NAV_STATE_KEY + "_hash");
-    if (savedHash && savedHash !== "#") {
-      history.replaceState(null, "", savedHash);
-    }
-  }
+  // Always start at homepage when visiting the root URL directly
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
   const [sub, setSub] = useState(hashState ? hashState.sub : saved ? saved.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
   const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : saved ? !!saved.aboutOpen : false);
