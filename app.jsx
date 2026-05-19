@@ -603,22 +603,96 @@ function stateToHash(sub, aboutOpen) {
   return "#";
 }
 
+// ── Clean path routing ────────────────────────────────────────────────────────
+const SPEC_SLUG  = { "ux":"user-experience", "ui":"ui-design", "proto":"prototyping", "brand":"brand-identity" };
+const SLUG_SPEC  = Object.fromEntries(Object.entries(SPEC_SLUG).map(([k,v]) => [v,k]));
+const CASE_SLUG  = { "luxury-watch":"luxury-watch", "baby-food":"baby-food", "consultation":"consulting", "realestate":"real-estate", "travel":"travel", "web-ui":"interface-designs" };
+const SLUG_CASE  = Object.fromEntries(Object.entries(CASE_SLUG).map(([k,v]) => [v,k]));
+const BRAND_SLUG = { "b1":"logo-design", "b2":"puzzle", "b4":"nef", "b3":"bos", "b5":"uranak", "b6":"serbian-week", "b7":"bed-and-beer" };
+const SLUG_BRAND = Object.fromEntries(Object.entries(BRAND_SLUG).map(([k,v]) => [v,k]));
+
+function stateToPath(sub, aboutOpen) {
+  if (aboutOpen) return "/about";
+  if (!sub || !sub.kind) return "/";
+  if (sub.kind === "spec")  { const s = SPECIALTIES[sub.specIdx];  return s ? "/" + (SPEC_SLUG[s.id]  || s.id)  : "/"; }
+  if (sub.kind === "case")  { const c = UX_CASES[sub.caseIdx];     return c ? "/" + (CASE_SLUG[c.id]  || c.id)  : "/"; }
+  if (sub.kind === "brand") { const b = BRANDS[sub.brandIdx];      return b ? "/brand/" + (BRAND_SLUG[b.id] || b.id) : "/"; }
+  return "/";
+}
+
+function parsePath() {
+  const raw  = window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
+  const path = raw.toLowerCase();
+  // /home → treat as homepage
+  if (path === "home") { history.replaceState(null, "", "/"); return null; }
+  // root — handle hash variants
+  if (!path) {
+    const hash = window.location.hash;
+    if (hash === "#" || hash === "#/") {
+      // bare # → clean it from the URL bar
+      history.replaceState(null, "", "/");
+    } else if (hash && hash !== "#" && hash !== "#/") {
+      // old hash routing → migrate to clean URL
+      const h = parseHash();
+      if (h) { history.replaceState(null, "", stateToPath(h.sub, h.aboutOpen)); return h; }
+    }
+    return null;
+  }
+  if (path === "about") return { sub: { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: true };
+  if (SLUG_SPEC[path]) {
+    const idx = SPECIALTIES.findIndex(s => s.id === SLUG_SPEC[path]);
+    if (idx >= 0) return { sub: { kind: "spec", specIdx: idx, storyIdx: 0, caseIdx: 0, brandIdx: 0 }, aboutOpen: false };
+  }
+  if (SLUG_CASE[path]) {
+    const idx = UX_CASES.findIndex(c => c.id === SLUG_CASE[path]);
+    if (idx >= 0) return { sub: { kind: "case", specIdx: 0, storyIdx: 0, caseIdx: idx, brandIdx: 0 }, aboutOpen: false };
+  }
+  if (path.startsWith("brand/")) {
+    const slug    = path.slice(6);
+    const brandId = SLUG_BRAND[slug];
+    if (brandId) {
+      const idx = BRANDS.findIndex(b => b.id === brandId);
+      if (idx >= 0) return { sub: { kind: "brand", specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: idx }, aboutOpen: false };
+    }
+  }
+  return null; // unknown path → show homepage
+}
+
 // --- App root ---
 function App() {
-  // Path takes priority over localStorage (so shared links always work)
-  const hashState = parseHash();
+  // Clean path takes priority → falls back to old hash for backward compat
+  const initState = parsePath() || parseHash();
 
-  // Always start at homepage when visiting the root URL directly
   const [tw, setTw] = useState(TWEAK_DEFAULTS);
-  const [sub, setSub] = useState(hashState ? hashState.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
-  const [aboutOpen, setAboutOpen] = useState(hashState ? hashState.aboutOpen : false);
+  const [sub, setSub] = useState(initState ? initState.sub : { kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
+  const [aboutOpen, setAboutOpen] = useState(initState ? initState.aboutOpen : false);
   const active = useScrollSpy(NAV_SECTIONS.map((n) => n.id));
   useRevealOnScroll([]);
 
-  // Persist nav state on every change
+  // Push clean URL whenever nav state changes
   useEffect(() => {
+    const newPath = stateToPath(sub, aboutOpen);
+    if (window.location.pathname !== newPath) {
+      history.pushState(null, "", newPath);
+    }
     saveNavState(sub, aboutOpen);
   }, [sub, aboutOpen]);
+
+  // Handle browser back / forward buttons
+  useEffect(() => {
+    const onPop = () => {
+      const parsed = parsePath() || parseHash();
+      if (parsed) {
+        setSub(parsed.sub);
+        setAboutOpen(parsed.aboutOpen);
+      } else {
+        setSub({ kind: null, specIdx: 0, storyIdx: 0, caseIdx: 0, brandIdx: 0 });
+        setAboutOpen(false);
+      }
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle("theme-mono", tw.accentHue === "mono");

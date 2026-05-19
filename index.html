@@ -911,13 +911,10 @@
 <div id="root"></div>
 
 <script>
-  // Restore hash from last session before React mounts — keeps users on the same subpage after a reload
+  // /home → redirect to / before React mounts
   (function(){
     try {
-      if (!window.location.hash || window.location.hash === "#") {
-        var saved = localStorage.getItem("sk_nav_state_hash");
-        if (saved && saved !== "#") history.replaceState(null, "", saved);
-      }
+      if (window.location.pathname === "/home") history.replaceState(null, "", "/");
     } catch(e) {}
   })();
 </script>
