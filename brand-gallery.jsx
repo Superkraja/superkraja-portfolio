@@ -184,12 +184,14 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
         ) : brand.images && brand.images.length > 0 ? (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             {brand.images.map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt={brand.name + " " + (i + 1)}
-                style={{ width: "100%", maxWidth: 960, display: "block", height: "auto" }}
-              />
+              <div key={i} style={{ width: "100%", maxWidth: 960, position: "relative" }}>
+                <ImgSkeleton
+                  src={src}
+                  alt={brand.name + " " + (i + 1)}
+                  imgStyle={{ width: "100%", height: "auto", display: "block" }}
+                  loading="lazy"
+                />
+              </div>
             ))}
           </div>
         ) : imgSrc ? (
