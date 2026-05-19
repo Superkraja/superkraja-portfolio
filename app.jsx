@@ -553,6 +553,7 @@ function SpecSubpage({ open, onClose, specIdx, stories, index, setIndex, accent 
 }
 
 const NAV_STATE_KEY = "sk_nav_state";
+const IS_PREVIEW = window.location.hostname.includes('claudeusercontent');
 
 function readNavState() {
   try {
@@ -669,17 +670,20 @@ function App() {
   const active = useScrollSpy(NAV_SECTIONS.map((n) => n.id));
   useRevealOnScroll([]);
 
-  // Push clean URL whenever nav state changes
+  // Push clean URL whenever nav state changes (production only)
   useEffect(() => {
-    const newPath = stateToPath(sub, aboutOpen);
-    if (window.location.pathname !== newPath) {
-      history.pushState(null, "", newPath);
+    if (!IS_PREVIEW) {
+      const newPath = stateToPath(sub, aboutOpen);
+      if (window.location.pathname !== newPath) {
+        history.pushState(null, "", newPath);
+      }
     }
     saveNavState(sub, aboutOpen);
   }, [sub, aboutOpen]);
 
-  // Handle browser back / forward buttons
+  // Handle browser back / forward buttons (production only)
   useEffect(() => {
+    if (IS_PREVIEW) return;
     const onPop = () => {
       const parsed = parsePath() || parseHash();
       if (parsed) {

@@ -4,7 +4,26 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Kraja — Product Designer | Vladimir Krajišnik</title>
-<link rel="icon" type="image/png" href="assets/favicon.png" />
+<!-- Image fallback: on preview (where local assets can't be served), swap to GitHub raw CDN -->
+  <script>
+    (function(){
+      var GH = 'https://raw.githubusercontent.com/Superkraja/superkraja-portfolio/main/';
+      document.addEventListener('error', function(e) {
+        var el = e.target;
+        if (el.tagName !== 'IMG') return;
+        // Use the current src to track what we've tried — so changing src retries
+        var cur = el.getAttribute('src') || el.src || '';
+        if (!cur || el.dataset.ghFb === cur) return; // already tried CDN for this exact src
+        el.dataset.ghFb = cur;
+        // Strip origin to get relative path
+        var path = cur.replace(/^https?:\/\/[^\/]+\//, '').replace(/^\//, '');
+        if (path && path.indexOf('raw.githubusercontent') === -1 && path.indexOf('data:') !== 0 && path.indexOf('//') === -1) {
+          el.src = GH + path;
+        }
+      }, true);
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
 <!-- Primary SEO -->
 <meta name="description" content="Vladimir 'Kraja' Krajišnik — Product Designer with 20+ years of experience in UX, UI, design systems, prototyping, and brand identity. Based in Belgrade." />

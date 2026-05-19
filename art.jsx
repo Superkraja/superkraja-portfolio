@@ -5,17 +5,60 @@ const Bolt = ({color="#0569E7", style}) => (
   </svg>
 );
 
-const IlloBrand = ({hover}) => (
-  <img src={hover ? "assets/superpower-brand-hover.svg" : "assets/superpower-brand-default.svg"} alt="" style={{width:'100%',height:'100%',objectFit:'contain'}} />
-);
 const IlloUX = ({hover}) => (
-  <img src={hover ? "assets/superpower-ux-hover.svg" : "assets/superpower-ux-default.svg"} alt="" style={{width:'100%',height:'100%',objectFit:'contain'}} />
+  <div style={{position:'relative',width:'100%',height:'100%'}}>
+    <div style={{position:'absolute',inset:0,transition:'opacity .25s',opacity:hover?0:1}}>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
+        <path d="M4 51L37 13H103L136 51L70.5789 127L4 51Z" fill="#4FA2F7"/>
+        <path d="M76 50V71H65V68.6667H73.6596V52.3333H65V50H76Z" fill="#212527"/>
+        <path d="M84.5151 38L70 46.3761L55.4849 38L41 54.6496L70 86L99 54.6496L84.5151 38Z" fill="white"/>
+        <path d="M38 53.7305L70 89L102 53.7305L86.0166 35L70 44.4229L53.9834 35L38 53.7305ZM70 50.2246L84.9365 41.4365L95.3408 53.6289L70 81.5586L44.6602 53.6289L55.0645 41.4365L70 50.2246Z" fill="#212527"/>
+      </svg>
+    </div>
+    <img src="assets/superpower-ux-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .25s',opacity:hover?1:0}} />
+  </div>
 );
+
 const IlloUI = ({hover}) => (
-  <img src={hover ? "assets/superpower-design-hover.svg" : "assets/superpower-design-default.svg"} alt="" style={{width:'100%',height:'100%',objectFit:'contain'}} />
+  <div style={{position:'relative',width:'100%',height:'100%'}}>
+    <div style={{position:'absolute',inset:0,transition:'opacity .25s',opacity:hover?0:1}}>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
+        <circle cx="70" cy="70" r="56" fill="#A391FF"/>
+        <path d="M80 70C80 81.598 70.598 91 59 91C47.402 91 38 81.598 38 70C38 58.402 47.402 49 59 49C70.598 49 80 58.402 80 70Z" fill="white"/>
+        <path d="M77 70C77 60.0589 68.9411 52 59 52C49.0589 52 41 60.0589 41 70C41 79.9411 49.0589 88 59 88V93C46.2975 93 36 82.7025 36 70C36 57.2975 46.2975 47 59 47C71.7025 47 82 57.2975 82 70C82 82.7025 71.7025 93 59 93V88C68.9411 88 77 79.9411 77 70Z" fill="#212527"/>
+        <path d="M97.5 70C97.5 60.335 89.665 52.5 80 52.5V47.5C92.4264 47.5 102.5 57.5736 102.5 70C102.5 82.4264 92.4264 92.5 80 92.5V87.5C89.665 87.5 97.5 79.665 97.5 70Z" fill="#212527"/>
+      </svg>
+    </div>
+    <img src="assets/superpower-design-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .25s',opacity:hover?1:0}} />
+  </div>
 );
+
 const IlloProto = ({hover}) => (
-  <img src={hover ? "assets/superpower-proto-hover.svg" : "assets/superpower-proto-default.svg"} alt="" style={{width:'100%',height:'100%',objectFit:'contain'}} />
+  <div style={{position:'relative',width:'100%',height:'100%'}}>
+    <div style={{position:'absolute',inset:0,transition:'opacity .25s',opacity:hover?0:1}}>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
+        <rect width="100" height="100" transform="matrix(-4.37114e-08 1 -0.999995 -0.00306235 120 20.1533)" fill="#EED263"/>
+        <path d="M75 53.5134L75 86.1042L42.4094 86.0044L42.4094 53.4136L75 53.5134Z" fill="white"/>
+        <path d="M77.8896 89.0029L39.5197 88.8854L39.5197 50.5153L77.8896 50.6328L77.8896 89.0029ZM44.5197 55.5306L44.5197 83.9007L72.8897 83.9876L72.8897 55.6175L44.5197 55.5306Z" fill="#212527"/>
+        <path d="M106.436 69.6568L84.1841 91.7728L80.6486 88.2373L99.3542 69.6459L80.7056 50.9973L84.252 47.4727L106.436 69.6568Z" fill="#212527"/>
+      </svg>
+    </div>
+    <img src="assets/superpower-proto-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .25s',opacity:hover?1:0}} />
+  </div>
+);
+
+const IlloBrand = ({hover}) => (
+  <div style={{position:'relative',width:'100%',height:'100%'}}>
+    <div style={{position:'absolute',inset:0,transition:'opacity .25s',opacity:hover?0:1}}>
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
+        <rect width="93.6459" height="93.6459" transform="matrix(0.708189 0.706023 -0.708189 0.706023 70 3.76758)" fill="#F7679B"/>
+        <path d="M55.0767 46.147L79.0031 70.0002L55.0767 93.8535L31.1503 70.0002L55.0767 46.147Z" fill="white"/>
+        <path d="M82.0798 70.0001L55.0767 96.9207L28.0736 70.0001L55.0767 43.0796L82.0798 70.0001ZM35.1554 70.0001L55.0767 89.8604L74.9979 70.0001L55.0767 50.1398L35.1554 70.0001Z" fill="#212527"/>
+        <path d="M97.5 47.5V92.5H74V87.5H92.5V52.5H74V47.5H97.5Z" fill="#212527"/>
+      </svg>
+    </div>
+    <img src="assets/superpower-brand-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .25s',opacity:hover?1:0}} />
+  </div>
 );
 const SPEC_ILLOS = { brand:IlloBrand, ux:IlloUX, ui:IlloUI, proto:IlloProto };
 
