@@ -379,22 +379,22 @@ function Contact() {
           </div>
         </div>
         <div className="contact-grid">
-          <form className="contact-form reveal" onSubmit={submit} noValidate style={{ backgroundColor: "rgb(62, 69, 72)" }}>
+          <form className="contact-form reveal" onSubmit={submit} noValidate method="post" action="#contact" style={{ backgroundColor: "rgb(62, 69, 72)" }}>
             <h3>Don't worry,</h3>
             <p>I don't have any mind-control powers, so don't be afraid to drop me a message.</p>
             <div className="field">
               <label>Your name</label>
-              <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Super friend" />
+              <input type="text" name="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Super friend" />
               <span className="err">{err.name || ""}</span>
             </div>
             <div className="field">
               <label>Email address</label>
-              <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="super@friend.com" />
+              <input type="email" name="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="super@friend.com" />
               <span className="err">{err.email || ""}</span>
             </div>
             <div className="field">
               <label>Message</label>
-              <textarea rows="4" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell me about your project…" />
+              <textarea name="message" rows="4" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Tell me about your project…" />
               <span className="err">{err.message || ""}</span>
             </div>
             <div className="submit-row">

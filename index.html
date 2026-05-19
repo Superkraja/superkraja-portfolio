@@ -982,10 +982,19 @@
 <div id="root"></div>
 
 <script>
-  // /home → redirect to / before React mounts
   (function(){
     try {
+      // /home → redirect to root
       if (window.location.pathname === "/home") history.replaceState(null, "", "/");
+      // Inject <base href="/"> on production so relative asset paths always
+      // resolve from root, even when the page is loaded at /luxury-watch etc.
+      // Skip in Claude preview (claudeusercontent) — it serves from a subpath
+      // and the base tag would break script loading there.
+      if (!window.location.hostname.includes('claudeusercontent')) {
+        var b = document.createElement('base');
+        b.href = '/';
+        document.head.insertBefore(b, document.head.firstChild);
+      }
     } catch(e) {}
   })();
 </script>
