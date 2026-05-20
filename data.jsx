@@ -46,14 +46,14 @@ const SPECIALTIES = [
     desc: "Crafting and polishing visual graphic elements.",
     illoKey: "brand",
     stories: [
-      { id:"brand-story-1", eyebrow:"Branding", title:"Designing a mark that sticks", lede:"What separates a logo from a wordmark — and when to use each.", facts:[["Read","6 min"],["Topic","Logo systems"],["Year","2024"]], cover:"brandCover1",
+      { id:"brand-story-1", eyebrow:"Branding", title:"Designing a mark that sticks", lede:"What separates a logo from a wordmark, and when to use each.", facts:[["Read","6 min"],["Topic","Logo systems"],["Year","2024"]], cover:"brandCover1",
         sections:[
-          ["The idea","Every identity starts with a single, ownable idea. I lean on metaphors before I touch a vector tool — they are easier to defend and easier to build a system around."],
+          ["The idea","Every identity starts with a single, ownable idea. I lean on metaphors before I touch a vector tool. They are easier to defend and easier to build a system around."],
           ["Form & feel","I narrow type, color and shape in parallel, not in sequence. Parallel exploration makes the trade-offs visible early."],
         ]},
       { id:"brand-story-2", eyebrow:"Branding", title:"Building a type system for a bakery", lede:"How one display face and one neutral sans carried an entire identity.", facts:[["Read","4 min"],["Client","Sušić Bakery"],["Deliverable","Brand book"]], cover:"brandCover2",
         sections:[
-          ["Starting with the menu","The hardest type choices happened on the menu card — the longest reading surface. Once it worked there, it worked everywhere."],
+          ["Starting with the menu","The hardest type choices happened on the menu card, the longest reading surface. Once it worked there, it worked everywhere."],
           ["Giving owners the keys","A brand book only works if the people using it feel confident. I recorded short Loom walk-throughs alongside the PDF."],
         ]},
       { id:"brand-story-3", eyebrow:"Branding", title:"A color palette that survives the real world", lede:"Choosing colors that look good in print, on screens, and on a busy street.", facts:[["Read","5 min"],["Topic","Color"],["Year","2025"]], cover:"brandCover3",
@@ -67,7 +67,7 @@ const SPECIALTIES = [
 
 const UX_CASES = [
   { id:"luxury-watch", cat:"UX case", title:"Luxury Watch App", desc:"A mobile app for watch enthusiasts and passionate collectors.",
-    lede:"Designed from scratch — including a full design system — for one of the world's most famous luxury watch retailers. Winner of two 3rd prizes at the 2025 Swiss Design Competition.",
+    lede:"Designed from scratch (including a full design system) for one of the world's most famous luxury watch retailers. Winner of two 3rd prizes at the 2025 Swiss Design Competition.",
     facts:[["Role","Lead Product Designer"],["Year","2024"],["Award","Swiss Design 2025"]],
     sections:[
       ["Overview","A mobile app for watch enthusiasts and passionate collectors, designed from scratch with a full design system."],
@@ -77,8 +77,8 @@ const UX_CASES = [
     lede:"Parents of newborns are exhausted, skeptical, and extremely online. The product had to earn trust in 60 seconds and keep it for 12 months.",
     facts:[["Role","Lead Product Designer"],["Team","4"],["Duration","6 months"],["Year","2024"]],
     sections:[
-      ["The problem","Subscription fatigue is real. Parents are offered five new food services a week. Ours had to feel different — calmer, more credible, more thoughtful about the child's actual age."],
-      ["What I designed","I re-structured the onboarding around the baby, not the parent. The first screen doesn't ask for an email — it asks how old the child is. Everything else (plan, portion size, cadence) follows from that."],
+      ["The problem","Subscription fatigue is real. Parents are offered five new food services a week. Ours had to feel different: calmer, more credible, more thoughtful about the child's actual age."],
+      ["What I designed","I re-structured the onboarding around the baby, not the parent. The first screen doesn't ask for an email, it asks how old the child is. Everything else (plan, portion size, cadence) follows from that."],
       ["Outcome","Trial-to-paid conversion went from 18% to 34% in the first quarter after launch. Support tickets about 'wrong portion size' dropped by ~60%."],
     ]},
   { id:"consultation", cat:"UX case", title:"Consulting services", desc:"Online consultations for startups and small businesses.", illo:"caseConsult",
@@ -90,11 +90,11 @@ const UX_CASES = [
       ["Outcome","Booking completion up 41%. No-show rate cut in half."],
     ]},
   { id:"realestate", cat:"UX case", title:"Real estate", desc:"Communication between real-estate agents and their clients.", illo:"caseEstate",
-    lede:"Agents live in WhatsApp. Any tool that replaces it has to be faster than WhatsApp — not more featured.",
+    lede:"Agents live in WhatsApp. Any tool that replaces it has to be faster than WhatsApp, not more featured.",
     facts:[["Role","Sole Designer"],["Team","5"],["Duration","8 months"],["Year","2023"]],
     sections:[
       ["The problem","Agents were losing 30% of leads because 'properties' lived in their CRM but conversations lived in WhatsApp."],
-      ["What I designed","A unified inbox where listings sit next to chat — one thumb can share a 2-bed apartment and answer 'pet friendly?' in the same thread."],
+      ["What I designed","A unified inbox where listings sit next to chat, so one thumb can share a 2-bed apartment and answer 'pet friendly?' in the same thread."],
       ["Outcome","Agent NPS went from 31 to 62. Retention doubled in 6 months."],
     ]},
   { id:"travel", cat:"UX case", title:"Travel app", desc:"Reserving and observing travel destinations for young people.", illo:"caseTravel",
@@ -113,10 +113,10 @@ const BRANDS = [
     fullImg:"assets/logo-01.jpg",
     images:["assets/logo-01.jpg","assets/logo-02.jpg","assets/logo-03.jpg","assets/logo-04.jpg","assets/logo-05.jpg","assets/logo-06.jpg","assets/logo-08.jpg","assets/logo-09.jpg","assets/logo-10.jpg","assets/logo-11.jpg","assets/logo-12.jpg","assets/logo-13.jpg","assets/logo-14.jpg","assets/logo-15.jpg","assets/logo-16.jpg","assets/logo-17.jpg","assets/logo-18.jpg","assets/logo-19.jpg","assets/logo-20.jpg","assets/logo-21.jpg"],
     eyebrow:"Branding", title:"Logo design",
-    lede:"20 marks across industries — from tech startups to real estate agencies, dental clinics to adventure brands. Each one built to own its space.",
+    lede:"20 marks across industries, from tech startups to real estate agencies, dental clinics to adventure brands. Each one built to own its space.",
     facts:[["Logos","20+"],["Years","2019–2024"],["Deliverable","Logotypes + marks"]],
     sections:[
-      ["One constraint per mark","Every logo starts with a single constraint — a shape, a letterform, a metaphor. That constraint is what makes it recognizable."],
+      ["One constraint per mark","Every logo starts with a single constraint: a shape, a letterform, a metaphor. That constraint is what makes it recognizable."],
       ["Built to travel","Each mark is tested at favicon size, on a dark background, and in single-color before it's considered done."],
     ]},
   { id:"b2", name:"Puzzle", key:"brandPuzzle", fullImg:"assets/brand-full-puzzle.jpg",
@@ -130,7 +130,7 @@ const BRANDS = [
     ]},
   { id:"b4", name:"NEF", key:"brandNef", fullImg:"assets/brand-full-nef.jpg",
     images:["assets/nef-1.png","assets/nef-2.jpg","assets/nef-3.jpg","assets/nef-4.jpg","assets/nef-5.jpg","assets/nef-6.jpg","assets/nef-7.jpg","assets/nef-8.jpg","assets/nef-9.jpg"],
-    eyebrow:"Branding", title:"NEF — a quiet logistics mark",
+    eyebrow:"Branding", title:"NEF, a quiet logistics mark",
     lede:"A B2B logistics company that didn't want to look like a B2B logistics company.",
     facts:[["Client","NEF Logistics"],["Year","2023"],["Deliverable","Logotype"]],
     sections:[
@@ -139,7 +139,7 @@ const BRANDS = [
     ]},
   { id:"b3", name:"BOS", key:"brandBos", fullImg:"assets/brand-full-bos.jpg",
     images:["assets/bos-1.jpg","assets/bos-2.jpg","assets/bos-3.jpg","assets/bos-4.jpg","assets/bos-5.jpg","assets/bos-6.jpg","assets/bos-7.jpg","assets/bos-8.jpg"],
-    eyebrow:"Branding", title:"BOS — sport club identity",
+    eyebrow:"Branding", title:"BOS, sport club identity",
     lede:"A youth basketball club that needed a mark for jerseys, gym walls, and Instagram in equal measure.",
     facts:[["Client","BOS Basketball"],["Year","2024"],["Deliverable","Crest + kit"]],
     sections:[
@@ -148,25 +148,25 @@ const BRANDS = [
     ]},
   { id:"b5", name:"Uranak", key:"brandUranak", fullImg:"assets/uranak-1.jpg",
     images:["assets/uranak-1.jpg"],
-    eyebrow:"Branding", title:"Uranak — music festival graphic elements",
+    eyebrow:"Branding", title:"Uranak, music festival graphic elements",
     lede:"A full suite of graphic assets for Uranak, Serbia's biggest May Day music festival held at Srebrno Jezero.",
     facts:[["Client","Uranak"],["Year","2023"],["Deliverable","Festival identity + print"]],
     sections:[
-      ["The brief","Line-up cards, stage logos, and social media banners — everything needed to feel energetic and cohesive across digital and print."],
+      ["The brief","Line-up cards, stage logos, and social media banners. Everything needed to feel energetic and cohesive across digital and print."],
       ["The result","A bold blue-and-green palette with custom stage wordmarks (Live, Urban, Open AIRaction) and artist portrait cards that held up at every size."],
     ]},
   { id:"b6", name:"Serbian Week", key:"brandSerbian", fullImg:"assets/serbian-1.jpg",
     images:["assets/serbian-1.jpg"],
-    eyebrow:"Branding", title:"Serbian Week — ski festival identity",
+    eyebrow:"Branding", title:"Serbian Week, ski festival identity",
     lede:"Annual ski week at Risoul, France. The identity needed to stretch from social banners to slope signage without losing energy.",
     facts:[["Client","Serbian Week / Puzzle Group"],["Year","2024"],["Deliverable","Identity + print + web"]],
     sections:[
-      ["Bold geometry on snow","The diagonal graphic system was built to contrast against white mountain backdrops — sharp angles, vivid red and blue, built for outdoor visibility."],
+      ["Bold geometry on snow","The diagonal graphic system was built to contrast against white mountain backdrops: sharp angles, vivid red and blue, built for outdoor visibility."],
       ["What shipped","Event branding, promotional poster, web presence via puzzlegroup.org, and stage graphics for nightly club events."],
     ]},
   { id:"b7", name:"Bed n beer", key:"brandBeer", fullImg:"assets/brand-full-beer.jpg",
     images:["assets/beer-1.jpg","assets/beer-2.jpg","assets/beer-3.jpg","assets/beer-4.jpg","assets/beer-5.jpg","assets/beer-6.jpg","assets/beer-7.jpg"],
-    eyebrow:"Branding", title:"Bed & Beer — a hostel with a wink",
+    eyebrow:"Branding", title:"Bed & Beer, a hostel with a wink",
     lede:"A backpacker hostel that brews its own beer downstairs. The brand had to be friendly without being twee.",
     facts:[["Client","Bed & Beer"],["Year","2022"],["Deliverable","Identity + signage"]],
     sections:[

@@ -198,9 +198,9 @@ function Works({ onOpenCase, onOpenBrand }) {
       <div className="wrap">
         <div className="title-wrap reveal">
           <div className="title-chip purple">
-            <img src="assets/star-doodle-left.svg" alt="" style={{ width: 50, height: 50 }} />
+            <img src="assets/star-doodle-left.svg" alt="" style={{ width: 38, height: 38 }} />
             <span>SUPER awesome portfolio</span>
-            <img src="assets/star-doodle-right.svg" alt="" style={{ width: 50, height: 50 }} />
+            <img src="assets/star-doodle-right.svg" alt="" style={{ width: 38, height: 38 }} />
           </div>
         </div>
 
@@ -314,7 +314,7 @@ function About({ onOpen }) {
               My name is Vladimir Krajišnik.<br />
               "Kraja" /ˈkra.ya/ comes from my last name and has been my nickname since childhood.<br />
               I've been in design for over 20 years.<br />
-              I live and work in Belgrade, and people say I look like Fred Flintstone—so some call me Fred.
+              I live and work in Belgrade, and people say I look like Fred Flintstone, so some call me Fred.
             </p>
             <button className="cta" onClick={onOpen} style={{ marginTop: 20 }}>
               Read more <Ico name="arrow-right" size={16} />
@@ -774,7 +774,7 @@ function App() {
         <Works onOpenCase={openCase} onOpenBrand={openBrand} />
         <About onOpen={() => setAboutOpen(true)} />
         <Contact />
-        <footer>© {new Date().getFullYear()} Vladimir "Kraja" Krajišnik — Product Designer. Made with care.</footer>
+        <footer>© {new Date().getFullYear()} Vladimir "Kraja" Krajišnik, Product Designer. Made with care.</footer>
       </main>
 
       <CaseSubpage

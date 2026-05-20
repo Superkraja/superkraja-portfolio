@@ -57,7 +57,7 @@ function StoryContent({ onClose, stories, index, setIndex, accent = "var(--blue)
           }
             {i === 1 &&
           <div className="cqt" style={{ borderLeftColor: accent }}>
-                "Design is not what it looks like — it's how it survives a Monday morning."
+                "Design is not what it looks like. It's how it survives a Monday morning."
               </div>
           }
           </section>
@@ -124,7 +124,7 @@ function AboutPage({ open, onClose }) {
             Zdrao.<br />I'm Kraja.
           </h1>
           <p style={{ fontSize: "clamp(17px,1.6vw,22px)", color: "rgba(255,255,255,.8)", lineHeight: 1.5, maxWidth: 620 }}>
-            I'm Vladimir Krajišnik… but over the years we figured it's way easier to call me Kraja. Just picture a team with five Vladimirs — so instead of using first names, you'd have to wrestle with my last name. Kraja. Easier.
+            I'm Vladimir Krajišnik… but over the years we figured it's way easier to call me Kraja. Just picture a team with five Vladimirs, so instead of using first names, you'd have to wrestle with my last name. Kraja. Easier.
           </p>
         </div>
       </div>
@@ -138,10 +138,10 @@ function AboutPage({ open, onClose }) {
               From print<br />to pixels.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              After finishing Design High School, I graduated from the College of Fine and Applied Arts in Graphic Design — back then it included sculpture, printmaking, photography, and typography.
+              After finishing Design High School, I graduated from the College of Fine and Applied Arts in Graphic Design. Back then it included sculpture, printmaking, photography, and typography.
             </p>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              From the very beginning, I started working with various companies that needed graphic design. By working on multiple different brands, I gained great knowledge and dealt with all types of branding — from the idea to the final product.
+              From the very beginning, I started working with various companies that needed graphic design. By working on multiple different brands, I gained great knowledge and dealt with all types of branding, from the idea to the final product.
             </p>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
               In 2011, I entered my first IT story. I started working on a project that required visualizing an app. That's where I first encountered programming and teams with a large number of members, both in the design section and in the development team.
@@ -162,10 +162,10 @@ function AboutPage({ open, onClose }) {
               Every project,<br />a different world.
             </h2>
             <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, marginBottom: 14 }}>
-              After that, every project was unique, requiring a different approach and presenting different challenges. From apps for HR, travel, real estate, baby food, business consulting, secret chats, cryptocurrencies, and social networks — to the world of luxury watches and jewelry.
+              After that, every project was unique, requiring a different approach and presenting different challenges. From apps for HR, travel, real estate, baby food, business consulting, secret chats, cryptocurrencies, and social networks, to the world of luxury watches and jewelry.
             </p>
             <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65 }}>
-              I've worked on so many different projects with so many different people that the whole experience has simply guided me through every sphere of life — both professional and personal.
+              I've worked on so many different projects with so many different people that the whole experience has simply guided me through every sphere of life, both professional and personal.
             </p>
           </div>
           <div style={{ borderRadius: 28, overflow: "hidden", boxShadow: "0 24px 50px -20px rgba(0,0,0,.5)" }}>
@@ -183,7 +183,7 @@ function AboutPage({ open, onClose }) {
               Personal.<br />Every time.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              Because lately, every product I've worked on, I've started to experience as something of my own — something personal. And I've come to take an interest not just in the visual side, but in the impact of the whole product on every element, as well as the impact of all those elements on the product itself.
+              Because lately, every product I've worked on, I've started to experience as something of my own, something personal. And I've come to take an interest not just in the visual side, but in the impact of the whole product on every element, as well as the impact of all those elements on the product itself.
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -214,7 +214,7 @@ function AboutPage({ open, onClose }) {
             {[
             { icon: "👨‍👧‍👦", title: "Three kids", desc: "Parent of three. The best project I've ever shipped." },
             { icon: "🛹", title: "Skate & Snow", desc: "Passionate lover of skateboards and snowboards." },
-            { icon: "🎸", title: "April O'Neil", desc: "Band: April O'Neil from Channel 6. One epic gig per year — and we crush it." },
+            { icon: "🎸", title: "April O'Neil", desc: "Band: April O'Neil from Channel 6. One epic gig per year, and we crush it." },
             { icon: "🏋️", title: "CrossFit", desc: "One unhealthy obsession. No regrets." }].
             map((item, i) =>
             <div key={i} style={{ background: "var(--paper)", borderRadius: 20, padding: "28px 24px", boxShadow: "0 8px 24px -8px rgba(34,75,86,.12)" }}>

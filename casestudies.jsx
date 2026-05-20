@@ -10,7 +10,7 @@ const CASE_DATA = {
     navLabel: "Baby food",
     eyebrow: "UX Case study",
     title: "Baby food.",
-    lede: "A monthly food subscription service for newborns — designed for tired parents who shop on their phones at 2 a.m.",
+    lede: "A monthly food subscription service for newborns. Designed for tired parents who shop on their phones at 2 a.m.",
     facts: [
     { label: "Role", value: "Product & Graphic designer" },
     { label: "Team", value: "20 people" },
@@ -21,7 +21,7 @@ const CASE_DATA = {
     overview: {
       tag: "Overview",
       title: "The full picture, from purée to pixel.",
-      body: ["One of the first projects where I encountered the complete approach to building a brand from scratch — from designing the user experience of an app to creating its graphic elements.",
+      body: ["One of the first projects where I encountered the complete approach to building a brand from scratch, from designing the user experience of an app to creating its graphic elements.",
       "A group of people and technologists came together and decided to produce and sell baby food made from 100% natural ingredients, with no additives.",
       "This app was used mostly by mothers with young children, who signed up for weekly or monthly subscriptions to receive packages of baby food."]
     },
@@ -35,7 +35,7 @@ const CASE_DATA = {
       tag: "Advantages & challenges", tagColor: "bf-tag-green",
       title: "One free box, then a long-term decision.",
       body: ["This product stood out because everyone could start by ordering one free box containing all the products, so they could try them out first before deciding whether to sign up for a monthly subscription.",
-      "What was challenging — was how to create a simple and short experience for setting up a subscription with the desired products and different quantities of products in the boxes."]
+      "What was challenging was how to create a simple and short experience for setting up a subscription with the desired products and different quantities of products in the boxes."]
     },
     process: {
       tag: "Subscription process", tagColor: "bf-tag-purple",
@@ -46,9 +46,9 @@ const CASE_DATA = {
       { num: "02", title: "Additional information", img: "assets/baby-2-info.jpg", desc: "We ask for the baby's age so we can create a box with food suited to that age." },
       { num: "03", title: "E-mail", img: "assets/baby-3-email.jpg", desc: "At this step, we ask for the user's email so we can create future shipments." },
       { num: "04", title: "Subscription box", img: "assets/baby-4-subscription.jpg", desc: "At this step, the user chooses the type of food for their baby. They can have just purée, just puffs, or a combination of both." },
-      { num: "05", title: "Taste chooser", img: "assets/baby-5-taste.jpg", desc: "Here, the user chooses what their child likes most — whether it's just fruit, just vegetables, or maybe a combination of the two." },
+      { num: "05", title: "Taste chooser", img: "assets/baby-5-taste.jpg", desc: "Here, the user chooses what their child likes most: whether it's just fruit, just vegetables, or maybe a combination of the two." },
       { num: "06", title: "Quantity", img: "assets/baby-6-quantity.jpg", scrollable: true, desc: "The amount of food here is automatically adjusted and suggested based on the baby's age and the options the user has chosen. The user is also able to modify the amount and change meals.\n\nEach product has an info icon next to it, where you can get information about that specific meal." },
-      { num: "07", title: "Delivery interval", img: "assets/baby-7-interval.jpg", desc: "Here, the user chooses how many boxes they'll receive per month — the options are 1, 2, or 4 boxes per month. We also made sure to calculate for the user how many purée servings per day that comes out to for the baby." },
+      { num: "07", title: "Delivery interval", img: "assets/baby-7-interval.jpg", desc: "Here, the user chooses how many boxes they'll receive per month. The options are 1, 2, or 4 boxes per month. We also made sure to calculate for the user how many purée servings per day that comes out to for the baby." },
       { num: "08", title: "Delivery date", img: "assets/baby-8-date.jpg", scrollable: true, desc: "At this step, the user chooses when the first delivery will be." },
       { num: "09", title: "Delivery data", img: "assets/baby-9-data.jpg", scrollable: true, desc: "At this step, the user enters their delivery details." },
       { num: "10", title: "Order summary", img: "assets/baby-10-summary.jpg", scrollable: true, desc: "The last step before payment. The user is able to see exactly what will be delivered and when. The marketing team also got involved here, constantly hitting us up with extra perks like, for example, a discount coupon." }]
@@ -57,7 +57,7 @@ const CASE_DATA = {
     learnings: {
       tag: "What did I learn from this project?", tagColor: "bf-tag-orange",
       title: "End to end, every segment of the product.",
-      body: "I learned how to take a detailed approach to planning and solving tasks, and how to thoroughly carry out the implementation plan for them. On this team, I was in touch with every segment of the product — from the purées themselves to collaborating with product owners and the marketing team."
+      body: "I learned how to take a detailed approach to planning and solving tasks, and how to thoroughly carry out the implementation plan for them. On this team, I was in touch with every segment of the product, from the purées themselves to collaborating with product owners and the marketing team."
     },
     floaters: [
     { src: "assets/food-apple.png", width: 240, top: "8%", left: "3%", delay: "0s", dur: "9s", r: "-15deg" },
@@ -75,7 +75,7 @@ const CASE_DATA = {
     navLabel: "Consulting services",
     eyebrow: "UX Case study",
     title: "Consulting services.",
-    lede: "Online consultations for startups and small businesses — designed so founders book a call the way they actually think.",
+    lede: "Online consultations for startups and small businesses. Designed so founders book a call the way they actually think.",
     facts: [
     { label: "Role", value: "Product Designer" },
     { label: "Team", value: "3 people" },
@@ -138,7 +138,7 @@ const CASE_DATA = {
     postProcess: {
       tag: "Challenges", tagColor: "bf-tag-orange",
       title: "Registration and payment, done right.",
-      body: ["The user would, of course, receive emails about the various steps they needed to complete. The biggest problem was how to nicely handle registration if the user is new — when they would need to confirm the email and how to bring them back to the step they were already on.",
+      body: ["The user would, of course, receive emails about the various steps they needed to complete. The biggest problem was how to nicely handle registration if the user is new, since they would need to confirm the email and how to bring them back to the step they were already on.",
       "Another challenge was how to simplify the payment process to be as straightforward as possible, without a lot of waiting or jumping from page to page."]
     },
     floaters: [
@@ -153,7 +153,7 @@ const CASE_DATA = {
     navLabel: "Real estate",
     eyebrow: "UX Case study",
     title: "Real estate.",
-    lede: "Communication between real-estate agents and their clients — faster than WhatsApp.",
+    lede: "Communication between real-estate agents and their clients, faster than WhatsApp.",
     facts: [
     { label: "Role", value: "UI / UX Designer" },
     { label: "Team", value: "5 people" },
@@ -209,7 +209,7 @@ const CASE_DATA = {
       steps: [
       { title: "Properties list", img: "assets/realestate-properties-list.jpg", scrollable: true, desc: "When they tried to check what the agent had sent them, the user could go from property to property and get detailed information about what was offered." },
       { title: "Property view", img: "assets/realestate-property-view.jpg", scrollable: true, desc: "Detailed view of a single property. The user could send a response back to the agent saying whether they like it or not. A sticky section at the bottom of the page would help them decide." },
-      { title: "Decline", img: "assets/realestate-decline.jpg", scrollable: true, desc: "The client could send a clear response to the agent — whether they like the property or not." },
+      { title: "Decline", img: "assets/realestate-decline.jpg", scrollable: true, desc: "The client could send a clear response to the agent, whether they like the property or not." },
       { title: "Message", img: "assets/realestate-message.jpg", scrollable: true, desc: "If the client had any additional questions, they could send them directly to the agent. The agent would then ultimately get in touch with them by phone." },
       { title: "Approval", img: "assets/realestate-approval.jpg", scrollable: true, desc: "If the client confirms that they like this property, the agent would receive a message and could contact the client about the next steps." },
       { title: "Search result", img: "assets/realestate-profile-search.jpg", scrollable: true, desc: "The client could also view a list of their created search filters and modify them on their profile page. Depending on what the client entered here, the agent could choose what to send to the potential client." },
@@ -232,7 +232,7 @@ const CASE_DATA = {
     navLabel: "Travel app",
     eyebrow: "UX Case study",
     title: "Travel app.",
-    lede: "Reserving and discovering travel destinations for young people — built around how Gen-Z actually plans trips.",
+    lede: "Reserving and discovering travel destinations for young people, built around how Gen-Z actually plans trips.",
     facts: [
     { label: "Role", value: "Graphic, UI, UX Design" },
     { label: "Team", value: "6 people" },
@@ -245,7 +245,7 @@ const CASE_DATA = {
       title: "A piece of the puzzle.",
       body: [
       "This is where it all started. But absolutely everything.",
-      "I was chilling one hot summer afternoon back in 2009 in a pub where Bogi was working behind the bar — he was also a co-owner of the Puzzle travel agency. I was complaining about how I had nowhere to go to the seaside that summer. He asked me to come along with him and be a tour guide on the trip. That's where my career as an animator and tour guide began, which then flowed into becoming the graphic designer for that same agency. From there, the director, Ćoso, sent me to help his close friend Marko at another company, where I'd be a UI designer. In the meantime, I developed a strong interest in user experience.",
+      "I was chilling one hot summer afternoon back in 2009 in a pub where Bogi was working behind the bar. He was also a co-owner of the Puzzle travel agency. I was complaining about how I had nowhere to go to the seaside that summer. He asked me to come along with him and be a tour guide on the trip. That's where my career as an animator and tour guide began, which then flowed into becoming the graphic designer for that same agency. From there, the director, Ćoso, sent me to help his close friend Marko at another company, where I'd be a UI designer. In the meantime, I developed a strong interest in user experience.",
       "And now, here I am."]
 
     },
@@ -254,7 +254,7 @@ const CASE_DATA = {
       title: "Redesign for the mobile generation.",
       body: [
       "To redesign the existing website and adapt the user experience for young people.",
-      "Why was the look on mobile so important? Because everyone — and I mean literally everyone — they talked to was viewing the site on their phone. No one ever turned on a computer. So we looked at how to simplify it."]
+      "Why was the look on mobile so important? Because everyone they talked to (and I mean literally everyone) was viewing the site on their phone. No one ever turned on a computer. So we looked at how to simplify it."]
 
     },
     challenges: {
@@ -268,21 +268,21 @@ const CASE_DATA = {
     process: {
       tag: "User flow", tagColor: "bf-tag-purple",
       title: "Mobile wireframes.",
-      intro: "A walkthrough of the full user journey — from landing on the homepage all the way to paying for a trip and reading about it in the magazine.",
+      intro: "A walkthrough of the full user journey, from landing on the homepage all the way to paying for a trip and reading about it in the magazine.",
       steps: [
-      { num: "01", title: "Main page", img: "assets/travel-1-main.jpg", scrollable: true, desc: "The young user lands on the homepage. At the top of the page, they can filter for what interests them — destination type and trip duration. Below that, they can see all upcoming trips in one place, along with flash deals, featured destinations, and a preview of the magazine." },
-      { num: "02", title: "Trips page", img: "assets/travel-2-trips.jpg", scrollable: true, desc: "This is the trip results page — a list of available trips filtered by the user's preferences. Each card shows the destination photo, trip duration, last-minute availability notice, original and discounted price, with quick Reserve and Details actions." },
+      { num: "01", title: "Main page", img: "assets/travel-1-main.jpg", scrollable: true, desc: "The young user lands on the homepage. At the top of the page, they can filter for what interests them, destination type and trip duration. Below that, they can see all upcoming trips in one place, along with flash deals, featured destinations, and a preview of the magazine." },
+      { num: "02", title: "Trips page", img: "assets/travel-2-trips.jpg", scrollable: true, desc: "This is the trip results page, a list of available trips filtered by the user's preferences. Each card shows the destination photo, trip duration, last-minute availability notice, original and discounted price, with quick Reserve and Details actions." },
       { num: "03", title: "Detailed trip description", img: "assets/travel-3-trip-detail.jpg", scrollable: true, desc: "A full description of a single trip, including all pricing tiers by date range and accommodation type, what's included and excluded in the price, video, photo gallery, day-by-day program, and available excursions." },
-      { num: "04", title: "Accommodation", img: "assets/travel-4-accommodation.jpg", scrollable: true, desc: "A detailed view of a single accommodation — photos, description, and a pricing table broken down by room type. What made these special is that the user could start a free reservation for the trip and that accommodation at any time, with no upfront payment." },
-      { num: "05", title: "Reservation", img: "assets/travel-5-reservation.jpg", scrollable: true, desc: "To make a reservation, the user enters their booking details — travel date, accommodation, room type, name, email, and phone number. After submitting, they are contacted by an agent who calls them and walks them through the next steps." },
+      { num: "04", title: "Accommodation", img: "assets/travel-4-accommodation.jpg", scrollable: true, desc: "A detailed view of a single accommodation: photos, description, and a pricing table broken down by room type. What made these special is that the user could start a free reservation for the trip and that accommodation at any time, with no upfront payment." },
+      { num: "05", title: "Reservation", img: "assets/travel-5-reservation.jpg", scrollable: true, desc: "To make a reservation, the user enters their booking details: travel date, accommodation, room type, name, email, and phone number. After submitting, they are contacted by an agent who calls them and walks them through the next steps." },
       { num: "06", title: "Payment", img: "assets/travel-6-payment.jpg", scrollable: true, desc: "The user could also choose to pay for their accommodation online and receive a 10% discount. The same pricing table is shown, but clicking a price initiates the payment flow rather than the free reservation." },
-      { num: "07", title: "Magazine", img: "assets/travel-7-magazine.jpg", scrollable: true, desc: "Puzzle had plenty of articles that blended life and travel into one. The magazine page shows a categorised list of articles — each with a cover photo, category tag, title, date, excerpt, and a read more link." },
+      { num: "07", title: "Magazine", img: "assets/travel-7-magazine.jpg", scrollable: true, desc: "Puzzle had plenty of articles that blended life and travel into one. The magazine page shows a categorised list of articles, each with a cover photo, category tag, title, date, excerpt, and a read more link." },
       { num: "08", title: "A single article", img: "assets/travel-8-article.jpg", scrollable: true, desc: "A full article view with a hero image, category tag, social sharing, author credit, body text, inline imagery, tag cloud, and a horizontally scrollable related articles section at the bottom." }]
     },
     learnings: {
       tag: "What did I learn from this project?", tagColor: "bf-tag-orange",
       title: "Know your users, then design around them.",
-      body: "Working on Puzzle taught me how much context matters before a single pixel is drawn. The entire redesign was driven by one simple observation — every single user was on their phone. From that, everything else followed: the filter-first homepage, the quick-reserve flow, the free booking with a callback instead of a complex checkout.\n\nI also learned how to balance business goals with user needs. The 10% online payment discount was a clever incentive that worked for both sides. And the magazine wasn't just content — it was a trust-builder that kept young travellers coming back."
+      body: "Working on Puzzle taught me how much context matters before a single pixel is drawn. The entire redesign was driven by one simple observation: every single user was on their phone. From that, everything else followed: the filter-first homepage, the quick-reserve flow, the free booking with a callback instead of a complex checkout.\n\nI also learned how to balance business goals with user needs. The 10% online payment discount was a clever incentive that worked for both sides. And the magazine wasn't just content. It was a trust-builder that kept young travellers coming back."
     },
     floaters: [
     { src: "assets/food-mango.png", width: 230, top: "6%", left: "2%", delay: "0s", dur: "9s", r: "10deg" },
@@ -296,7 +296,7 @@ const CASE_DATA = {
     navLabel: "Luxury Watch App",
     eyebrow: "UX Case study",
     title: "Luxury Watch App.",
-    lede: "A mobile app for watch enthusiasts and passionate collectors — designed from scratch, including a full design system built in lockstep with the front-end team.",
+    lede: "A mobile app for watch enthusiasts and passionate collectors, designed from scratch, including a full design system built in lockstep with the front-end team.",
     facts: [
     { label: "Role", value: "UI / UX Designer" },
     { label: "Deliverable", value: "Design System + App" },
@@ -310,7 +310,7 @@ const CASE_DATA = {
       title: "Made with love, from scratch.",
       body: [
       "The last project I was working on was one of the most exciting of my career, and truly made with love. I was tasked with designing a mobile app for watch enthusiasts and passionate collectors of handwatches.",
-      "What made this project particularly meaningful to me was the opportunity to design everything from scratch. This included building the entire design system from the ground up — a system mutually supported by both the design team and the front-end team, allowing everyone to work with the same naming conventions and ultimately produce a cohesive, beautiful front-end experience."]
+      "What made this project particularly meaningful to me was the opportunity to design everything from scratch. This included building the entire design system from the ground up, a system mutually supported by both the design team and the front-end team, allowing everyone to work with the same naming conventions and ultimately produce a cohesive, beautiful front-end experience."]
 
     },
     role: {
@@ -324,7 +324,7 @@ const CASE_DATA = {
       tag: "The challenge", tagColor: "bf-tag-green",
       title: "Creativity within constraints.",
       body: [
-      "The most challenging aspect of the project was finding the balance between creativity and brand compliance — pushing the design forward while staying faithful to guidelines that carried a distinct note of luxury identity."]
+      "The most challenging aspect of the project was finding the balance between creativity and brand compliance, pushing the design forward while staying faithful to guidelines that carried a distinct note of luxury identity."]
 
     },
     process: {
@@ -332,9 +332,9 @@ const CASE_DATA = {
       title: "The features.",
       intro: "We developed several standout features for collectors.",
       steps: [
-      { title: "Digital Collection", img: "assets/Digital collection.jpg", scrollable: true, desc: "Users could create digital profiles of their own watches, complete with all the necessary documentation in one place — guarantees, manuals, and insurance receipts. For users already registered in the company's system, their collection was prepared in advance and pulled directly from the database." },
-      { title: "Insurance", img: "assets/Insurance.jpg", scrollable: true, desc: "Users could insure their beloved watch collection directly through the app, giving collectors peace of mind without leaving the platform. One key benefit was the ability to insure multiple watches at once, with the entire process handled inside the app — no need to contact or visit the insurance group directly." },
-      { title: "Sell-to-Company", img: "assets/Sell to company.jpg", scrollable: true, desc: "Users had the option to sell their watches directly to the company. As part of the flow, users could request an estimation and then choose to accept or reject the offer. Once agreed, they could arrange a shipment or bring it in personally — whichever felt right for them." },
+      { title: "Digital Collection", img: "assets/Digital collection.jpg", scrollable: true, desc: "Users could create digital profiles of their own watches, complete with all the necessary documentation in one place: guarantees, manuals, and insurance receipts. For users already registered in the company's system, their collection was prepared in advance and pulled directly from the database." },
+      { title: "Insurance", img: "assets/Insurance.jpg", scrollable: true, desc: "Users could insure their beloved watch collection directly through the app, giving collectors peace of mind without leaving the platform. One key benefit was the ability to insure multiple watches at once, with the entire process handled inside the app, with no need to contact or visit the insurance group directly." },
+      { title: "Sell-to-Company", img: "assets/Sell to company.jpg", scrollable: true, desc: "Users had the option to sell their watches directly to the company. As part of the flow, users could request an estimation and then choose to accept or reject the offer. Once agreed, they could arrange a shipment or bring it in personally, whichever felt right for them." },
       { title: "Watch Services", img: "assets/Watch services.jpg", scrollable: true, desc: "Users could book an appointment to bring their watch in for servicing, ensuring their pieces stayed in pristine condition with the same trusted hands that knew them best." },
       { title: "Agent Appointments", img: "assets/Agent Appointments.jpg", scrollable: true, desc: "Users were able to book an appointment with an agent to explore a specific watch or piece of jewelry, turning the discovery process into a personal, guided experience." },
       { title: "Collection Marketplace", img: "assets/Collection marketplace.jpg", scrollable: true, desc: "The flagship feature, allowing users to track their entire collection on a dedicated marketplace and stay informed about the value and movement of their pieces." }]
@@ -343,7 +343,7 @@ const CASE_DATA = {
     recognition: {
       tag: "Recognition",
       title: "2025 Swiss Design Competition.",
-      body: "One of the most rewarding outcomes of this project was being recognized at the 2025 Swiss design competition — a testament to the care, craftsmanship, and collaboration that went into building this app.",
+      body: "One of the most rewarding outcomes of this project was being recognized at the 2025 Swiss design competition, a testament to the care, craftsmanship, and collaboration that went into building this app.",
       awards: [
       { place: "3rd Prize", category: "User Experience Design" },
       { place: "3rd Prize", category: "Design Overall" }],
@@ -356,7 +356,7 @@ const CASE_DATA = {
     learnings: {
       tag: "What did I learn from this project?", tagColor: "bf-tag-orange",
       title: "A system that outlives the project.",
-      body: "Building an entire design system from scratch while simultaneously designing the product taught me that the two can't be separated. Every component decision is a system decision. Every naming choice is a handshake with the developer who'll implement it.\n\nWorking within the constraints of a world-class luxury brand also sharpened my understanding of restraint — knowing when to push and when to let the brand speak."
+      body: "Building an entire design system from scratch while simultaneously designing the product taught me that the two can't be separated. Every component decision is a system decision. Every naming choice is a handshake with the developer who'll implement it.\n\nWorking within the constraints of a world-class luxury brand also sharpened my understanding of restraint, knowing when to push and when to let the brand speak."
     },
     floaters: []
   }
@@ -721,7 +721,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/ux-illustration.png" alt="UX Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
+            <ImgSkeleton src="assets/ux-hero-v6.svg" alt="UX Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
           </div>
         </div>
       </div>
@@ -732,10 +732,10 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
           <div style={{ maxWidth: 760 }}>
             <div className="bf-tag bf-tag-blue">What is user experience?</div>
             <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(32px,4vw,52px)", lineHeight: 1, margin: "0 0 20px" }}>
-              It's not just about the app — it's about the entire product.
+              It's not just about the app, it's about the entire product.
             </h2>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              It's not just about how easy, efficient, logical, and enjoyable an app is to use. A complete user experience also considers how someone interacts with the entire product — not just the app itself.
+              It's not just about how easy, efficient, logical, and enjoyable an app is to use. A complete user experience also considers how someone interacts with the entire product, not just the app itself.
             </p>
             <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>Can improving the right features make users fall in love with a brand? Absolutely. That's why we need to a clear picture from the user's perspective: what truly makes them happy, what daily frustrations stand in their way, and how we can improve them.
 
@@ -747,20 +747,25 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
       {/* SECTION 2: Strategy */}
       <div className="bf-section">
         <div className="bf-wrap">
-          <div style={{ maxWidth: 760 }}>
-            <div className="bf-tag bf-tag-purple">Strategy, or how it's built</div>
-            <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(32px,4vw,52px)", lineHeight: 1, margin: "0 0 20px" }}>
-              Every project needs a different approach.
-            </h2>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              I've often joined projects where the team didn't have a clear workflow for improving the user experience. Some weren't even interested in making improvements, and most didn't have a clear picture of what UX really is — or why it's so important to improve it.
-            </p>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-              <strong>Success lies in your ability to showcase results and demonstrate just how important user experience really is.</strong>
-            </p>
-            <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-              Sometimes you need to create a completely new experience, sometimes you need to improve an existing one, and sometimes you don't even know who your user is — which, more often than not, is the case. That's why we need the right approach and strategy, tailored to the actual need.
-            </p>
+          <div className="two-col-grid">
+            <div>
+              <div className="bf-tag bf-tag-blue">Strategy, or how it's built</div>
+              <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(32px,4vw,52px)", lineHeight: 1, margin: "0 0 20px" }}>
+                Every project needs a different approach.
+              </h2>
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
+                I've often joined projects where the team didn't have a clear workflow for improving the user experience. Some weren't even interested in making improvements, and most didn't have a clear picture of what UX really is, or why it's so important to improve it.
+              </p>
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
+                <strong>Success lies in your ability to showcase results and demonstrate just how important user experience really is.</strong>
+              </p>
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
+                Sometimes you need to create a completely new experience, sometimes you need to improve an existing one, and sometimes you don't even know who your user is, which (more often than not, is the case). That's why we need the right approach and strategy, tailored to the actual need.
+              </p>
+            </div>
+            <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <ImgSkeleton src="assets/ux-illustration.png" alt="UX Illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
+            </div>
           </div>
         </div>
       </div>
@@ -768,12 +773,12 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
       {/* SECTION 3: Blueprint */}
       <div className="bf-section bf-bg-cream">
         <div className="bf-wrap">
-          <div className="bf-tag bf-tag-green">Blueprint & design rules</div>
+          <div className="bf-tag bf-tag-blue">Blueprint & design rules</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px", maxWidth: 720 }}>
             A blueprint everyone on the team can align with.
           </h2>
           <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
-            A UX strategy blueprint is essential for helping every team member understand what a new project is really about. It allows us to define challenges, set focus areas, and establish guiding principles — and most importantly, our design rules. Following these rules and principles is what enables us to create the best possible, easy-to-use application.
+            A UX strategy blueprint is essential for helping every team member understand what a new project is really about. It allows us to define challenges, set focus areas, and establish guiding principles, and most importantly, our design rules. Following these rules and principles is what enables us to create the best possible, easy-to-use application.
           </p>
           <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
             Here's what a blueprint can look like:
@@ -787,7 +792,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
       {/* SECTION 4: Design rules */}
       <div className="bf-section">
         <div className="bf-wrap">
-          <div className="bf-tag bf-tag-orange">Design guidelines and principles</div>
+          <div className="bf-tag bf-tag-blue">Design guidelines and principles</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 28px" }}>
             Three rules.<br />No exceptions.
           </h2>
@@ -802,7 +807,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             </div>
           )}
           <p style={{ fontSize: 15, color: "var(--ink-soft)", lineHeight: 1.65, marginTop: 16, borderLeft: "3px solid var(--blue)", paddingLeft: 16, maxWidth: 720 }}>
-            Throughout the design process, these three rules are the one thing everyone must stick to. That means no one — not even someone at the C-level — can propose anything that conflicts with them.
+            Throughout the design process, these three rules are the one thing everyone must stick to. That means no one (not even someone at the C-level) can propose anything that conflicts with them.
           </p>
           <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", marginTop: 40, marginBottom: 8 }}>
             <ImgSkeleton src="assets/ux-david-rota-2.png" alt="David Rota presenting principles" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
@@ -818,10 +823,10 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="bf-tag" style={{ background: "rgba(255,255,255,.1)", color: "#fff" }}>User Journey</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px", color: "#fff", maxWidth: 720 }}>
-            Clicks, thoughts, and needs — in one view.
+            Clicks, thoughts, and needs, all in one view.
           </h2>
           <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
-            A user journey is made up of three layers. In the middle is the user flow — the actual clicks. Above it are the user's potential thoughts, and below, in green, are their needs. This way, we can easily map out everything the user needs and design the best possible flow around it.
+            A user journey is made up of three layers. In the middle is the user flow: the actual clicks. Above it are the user's potential thoughts, and below, in green, are their needs. This way, we can easily map out everything the user needs and design the best possible flow around it.
           </p>
           <div style={{ position: "relative" }}><ImgSkeleton src="assets/ux-user-journey.png" alt="User Journey diagram" loading="lazy" imgStyle={{ width: "100%", display: "block" }} /></div>
         </div>
@@ -868,16 +873,16 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
       <div style={{ padding: "clamp(40px,6vw,90px) clamp(20px,5vw,72px) 0", maxWidth: 1280, margin: "0 auto" }}>
         <div className="sp-hero-grid">
           <div className="sp-hero-text">
-            <div className="bf-eyebrow">Superpower</div>
+            <div className="bf-eyebrow" style={{ color: "var(--purple)" }}>Superpower</div>
             <h1 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.03em", fontSize: "clamp(48px,7vw,88px)", lineHeight: 0.9, margin: "0 0 20px" }}>
-              UI &amp;<br />Design<br />systems.
+              UI &amp; Design<br />systems.
             </h1>
             <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>Fine art in the digital space. Visual designers are the artists that developers simply can't do without.
 
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/ui-illustration.png" alt="UI Illustration" loading="lazy" imgStyle={{ width: "90%", height: "90%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/ui-hero-v3.svg" alt="UI Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -887,54 +892,45 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid">
             <div style={{ maxWidth: 600 }}>
-              <div className="bf-tag bf-tag-orange">Artists</div>
+              <div className="bf-tag bf-tag-purple">Artists</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 Who even are<br />those two?
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                On my very first project, I was working closely with my dear colleague Goran. Our senior team lead — a guy in his late 40s — was running a meeting and didn't even notice there were two new team members in the room. About fifteen minutes in, he wondered out loud, "Who are these two guys?" Someone answered, "Front-end and designer." He replied, "Oh, the artists."
+                On my very first project, I was working closely with my dear colleague Goran. Our senior team lead (a guy in his late 40s) was running a meeting and didn't even notice there were two new team members in the room. About fifteen minutes in, he wondered out loud, "Who are these two guys?" Someone answered, "Front-end and designer." He replied, "Oh, the artists."
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
                 What the heck? I thought back then. We're not artists, we're developers.
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                Back then, I couldn't understand what he meant. But honestly, after all these years, I've come to realize he was right. We are a kind of visual artist — the kind developers simply can't do without. In fact, no one can.
+                Back then, I couldn't understand what he meant. But honestly, after all these years, I've come to realize he was right. We are a kind of visual artist, the kind developers simply can't do without. In fact, no one can.
               </p>
             </div>
-            <div style={{
-              background: "var(--ink)", borderRadius: 28, padding: "clamp(28px,4vw,48px)",
-              color: "#fff", display: "flex", flexDirection: "column", gap: 20
-            }}>
-              <div style={{ fontFamily: "Patrick Hand SC", fontSize: 80, color: "var(--orange)", lineHeight: 0.8, marginBottom: 8 }}>"</div>
-              <p style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 700, lineHeight: 1.3, color: "#fff", margin: 0 }}>
-                We are a kind of visual artist — the kind developers simply can't do without.
-              </p>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,.5)", margin: 0 }}>— by SUPER me</p>
+            <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <ImgSkeleton src="assets/ui-illustration.png" alt="UI Illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
             </div>
           </div>
         </div>
       </div>
-
-      {/* SECTION 2: What matters most */}
       <div className="bf-section">
         <div className="bf-wrap">
-          <div className="bf-tag bf-tag-blue">What matters the most?</div>
+          <div className="bf-tag bf-tag-purple">What matters the most?</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px", maxWidth: 720 }}>
             Attractive, intuitive,<br />and understandable.
           </h2>
           <div className="two-col-grid tight" style={{ marginTop: 16 }}>
             <div>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                Every design has to be attractive, intuitive, and understandable — Period. For me, cleanness and simplicity are what make a design truly successful. But the most important skill is balancing your artistic ambition with what's actually feasible.
+                Every design has to be attractive, intuitive, and understandable. Period. For me, cleanness and simplicity are what make a design truly successful. But the most important skill is balancing your artistic ambition with what's actually feasible.
               </p>
 
             </div>
             <div>
-              <div style={{ background: "#f0f7ff", borderRadius: 20, padding: "clamp(20px,3vw,36px)" }}>
-                <div style={{ fontFamily: "Patrick Hand SC", fontSize: 22, color: "var(--blue)", marginBottom: 20 }}>Things I have a real command of</div>
+              <div style={{ background: "#f5f0fd", borderRadius: 20, padding: "clamp(20px,3vw,36px)" }}>
+                <div style={{ fontFamily: "Patrick Hand SC", fontSize: 22, color: "var(--purple)", marginBottom: 20 }}>Things I have a real command of</div>
                 {["Subtlety", "Smooth feel of use", "Animations", "Transitions"].map((item, i) =>
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--blue)", flexShrink: 0 }}></div>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--purple)", flexShrink: 0 }}></div>
                     <span style={{ fontSize: 18, fontWeight: 700, color: "var(--ink)" }}>{item}</span>
                   </div>
                 )}
@@ -954,7 +950,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
                 Built clean.<br />From day one.
               </h2>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, marginBottom: 14 }}>
-                It's essential to build and maintain a healthy, clean design system from the very beginning. Every element and component should be useful — for both designers and developers.
+                It's essential to build and maintain a healthy, clean design system from the very beginning. Every element and component should be useful for both designers and developers.
               </p>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65 }}>
                 Consistency is crucial, of course, along with the brand's following visual elements.
@@ -968,7 +964,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
               { label: "Cleanliness", icon: "◻", desc: "No dead components" }].
               map((card, i) =>
               <div key={i} style={{ background: "rgba(255,255,255,.07)", borderRadius: 16, padding: "20px 18px" }}>
-                  <div style={{ fontSize: 28, marginBottom: 8, color: "var(--green)" }}>{card.icon}</div>
+                  <div style={{ fontSize: 28, marginBottom: 8, color: "var(--purple)" }}>{card.icon}</div>
                   <div style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>{card.label}</div>
                   <div style={{ fontSize: 12, color: "rgba(255,255,255,.5)" }}>{card.desc}</div>
                 </div>
@@ -1019,7 +1015,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
       <div style={{ padding: "clamp(40px,6vw,90px) clamp(20px,5vw,72px) 0", maxWidth: 1280, margin: "0 auto" }}>
         <div className="sp-hero-grid">
           <div className="sp-hero-text">
-            <div className="bf-eyebrow">Superpower</div>
+            <div className="bf-eyebrow" style={{ color: "#C97A1F" }}>Superpower</div>
             <h1 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.03em", fontSize: "clamp(48px,7vw,88px)", lineHeight: 0.9, margin: "0 0 20px" }}>
               Prototype<br />&amp; Testing.
             </h1>
@@ -1028,7 +1024,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/proto-illustration.png" alt="Prototype illustration" loading="lazy" imgStyle={{ width: "85%", height: "85%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/proto-hero-v3.svg" alt="Prototype illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -1038,11 +1034,11 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid">
             <div>
-              <div className="bf-tag bf-tag-purple">Last...</div>
+              <div className="bf-tag bf-tag-yellow">Last...</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 ...but not least.
               </h2>
-              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>We can't truly know how a product works until we try it for real. Visually, we can create anything — but until we actually hold in our hands what we've built, and start using it, we can't tell whether it's genuinely good.
+              <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>We can't truly know how a product works until we try it for real. Visually, we can create anything, but until we actually hold in our hands what we've built, and start using it, we can't tell whether it's genuinely good.
 
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
@@ -1064,12 +1060,12 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
               <ImgSkeleton src="assets/proto-image-2.jpg" alt="Real environment testing" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
             </div>
             <div>
-              <div className="bf-tag bf-tag-green">Real people in a real environment.</div>
+              <div className="bf-tag bf-tag-yellow">Real people in a real environment.</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 Are we the users?<br />Of course not.
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                We can test a design on ourselves all we want — but we'll never really know how a user behaves until we put it in front of them. What are they actually thinking while using the product? How do they navigate it? Do they navigate it at all?
+                We can test a design on ourselves all we want, but we'll never really know how a user behaves until we put it in front of them. What are they actually thinking while using the product? How do they navigate it? Do they navigate it at all?
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
                 The only way to find out is in a real environment, with real users and the actual product in their hands. Combined with the right questions and careful observation, that's how we get the answers we need.
@@ -1094,14 +1090,14 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
             { q: "What is unnecessary for them?", icon: "▦" }].
             map((card, i) =>
             <div key={i} style={{ background: "rgba(255,255,255,.07)", borderRadius: 16, padding: "24px 20px" }}>
-                <div style={{ fontSize: 28, color: "var(--green)", marginBottom: 12 }}>{card.icon}</div>
+                <div style={{ fontSize: 28, color: "var(--yellow)", marginBottom: 12 }}>{card.icon}</div>
                 <div style={{ fontSize: 16, fontWeight: 600, color: "#fff", lineHeight: 1.4 }}>{card.q}</div>
               </div>
             )}
           </div>
-          <div style={{ borderLeft: "3px solid var(--green)", paddingLeft: 24, maxWidth: 680 }}>
+          <div style={{ borderLeft: "3px solid var(--yellow)", paddingLeft: 24, maxWidth: 680 }}>
             <p style={{ fontSize: 20, fontWeight: 700, color: "#fff", lineHeight: 1.4, margin: 0 }}>
-              That way, we uncover potential problems and resolve them before production — saving the most valuable and most irreversible resource of all: <span style={{ color: "var(--green)" }}>time.</span>
+              That way, we uncover potential problems and resolve them before production, saving the most valuable and most irreversible resource of all: <span style={{ color: "var(--yellow)" }}>time.</span>
             </p>
           </div>
         </div>
@@ -1148,16 +1144,16 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
       <div style={{ padding: "clamp(40px,6vw,90px) clamp(20px,5vw,72px) 0", maxWidth: 1280, margin: "0 auto" }}>
         <div className="sp-hero-grid">
           <div className="sp-hero-text">
-            <div className="bf-eyebrow">Superpower</div>
+            <div className="bf-eyebrow" style={{ color: "#BE185D" }}>Superpower</div>
             <h1 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.03em", fontSize: "clamp(48px,7vw,88px)", lineHeight: 0.9, margin: "0 0 20px" }}>
               Brand<br />identities.
             </h1>
             <p style={{ fontSize: "clamp(17px,1.5vw,20px)", color: "var(--ink-soft)", lineHeight: 1.55, maxWidth: 520 }}>
-              Crafting and refining visual elements — the first touchpoint with a product, and the one that shapes how people visually perceive the brand.
+              Crafting and refining visual elements, the first touchpoint with a product, and the one that shapes how people visually perceive the brand.
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-            <ImgSkeleton src="assets/brand-illustration.svg" alt="Brand illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/brand-hero-v3.svg" alt="Brand illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -1167,33 +1163,19 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid asym align-start">
             <div>
-              <div className="bf-tag bf-tag-orange">First touchpoint with a product</div>
+              <div className="bf-tag bf-tag-pink">First touchpoint with a product</div>
               <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 20px" }}>
                 More than a logo.<br />It's a feeling.
               </h2>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65, marginBottom: 14 }}>
-                A brand identity is what reflects a brand — what makes it visually distinct and recognizable, and what kind of impression it leaves on people. Together with all its elements, it communicates with the audience and shapes how they feel about the brand.
+                A brand identity is what reflects a brand, what makes it visually distinct and recognizable, and what kind of impression it leaves on people. Together with all its elements, it communicates with the audience and shapes how they feel about the brand.
               </p>
               <p style={{ fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.65 }}>
-                But brand identity isn't only about the visual side. It comes through in every message and value the brand projects into the world. Through those messages, people sense what kind of brand it really is — relaxed, confident, luxurious, or fun.
+                But brand identity isn't only about the visual side. It comes through in every message and value the brand projects into the world. Through those messages, people sense what kind of brand it really is: relaxed, confident, luxurious, or fun.
               </p>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16, paddingTop: 8 }}>
-              {[
-              { word: "Relaxed", color: "#7BAA84", bg: "#edf7ef" },
-              { word: "Confident", color: "#0569E7", bg: "#e8f1fd" },
-              { word: "Luxurious", color: "#7242D3", bg: "#f0ebfb" },
-              { word: "Fun", color: "#F16040", bg: "#fef0ec" }].
-              map((item, i) =>
-              <div key={i} style={{
-                background: item.bg, borderRadius: 16,
-                padding: "18px 24px",
-                display: "flex", alignItems: "center", gap: 14
-              }}>
-                  <div style={{ width: 10, height: 10, borderRadius: "50%", background: item.color, flexShrink: 0 }}></div>
-                  <span style={{ fontSize: 20, fontWeight: 800, color: item.color }}>{item.word}</span>
-                </div>
-              )}
+            <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
+              <ImgSkeleton src="assets/brand-illustration.svg" alt="Brand illustration" loading="lazy" imgStyle={{ width: "90%", height: "auto", objectFit: "contain" }} />
             </div>
           </div>
         </div>
@@ -1209,7 +1191,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
                 Consistency!<br />That's non-negotiable.
               </h2>
               <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65 }}>
-                The look and feel have to be the same across every part of a brand. From the logo on a paper bag to the loading spinner in the app — it all has to look unified.
+                The look and feel have to be the same across every part of a brand. From the logo on a paper bag to the loading spinner in the app, it all has to look unified.
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
@@ -1225,7 +1207,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
                 background: "rgba(255,255,255,.07)", borderRadius: 14,
                 padding: "20px 18px", display: "flex", flexDirection: "column", gap: 8
               }}>
-                  <div style={{ fontSize: 22, color: "var(--orange)" }}>{item.icon}</div>
+                  <div style={{ fontSize: 22, color: "#EC4899" }}>{item.icon}</div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{item.label}</div>
                 </div>
               )}
@@ -1237,7 +1219,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
       {/* SECTION 3: Brand portfolio preview */}
       <div className="bf-section">
         <div className="bf-wrap">
-          <div className="bf-tag bf-tag-blue">Some of the brands I designed</div>
+          <div className="bf-tag bf-tag-pink">Some of the brands I designed</div>
           <h2 style={{ fontFamily: "'Figtree',sans-serif", fontWeight: 800, letterSpacing: "-0.02em", fontSize: "clamp(28px,3.5vw,46px)", lineHeight: 1, margin: "0 0 40px", maxWidth: 600 }}>
             Each one a different<br />world to figure out.
           </h2>
