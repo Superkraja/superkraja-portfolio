@@ -117,9 +117,8 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
         <div className="sub-nav">
           <button
             aria-label="Previous brand"
-            disabled={index === 0}
             onClick={() => setIndex(index - 1)}
-            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff" }}
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff", visibility: index === 0 ? "hidden" : "visible" }}
           >
             <Ico name="arrow-left" size={16} />
           </button>
@@ -128,9 +127,8 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
           </span>
           <button
             aria-label="Next brand"
-            disabled={index === brands.length - 1}
             onClick={() => setIndex(index + 1)}
-            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff" }}
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff", visibility: index === brands.length - 1 ? "hidden" : "visible" }}
           >
             <Ico name="arrow-right" size={16} />
           </button>

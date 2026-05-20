@@ -461,13 +461,13 @@ function InterfaceDesignsContent({ onClose, stories, index, setIndex }) {
           Interface designs
         </div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">
             {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
           </span>
-          <button aria-label="Next" disabled={index === count - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === count - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>

@@ -17,11 +17,11 @@ function StoryContent({ onClose, stories, index, setIndex, accent = "var(--blue)
         </button>
         <div className="sub-bar-title" style={{ fontFamily: "Patrick Hand SC", fontSize: 22, color: "var(--muted)" }}>{s.title.split("\n")[0]}</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String(stories.length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === stories.length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === stories.length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>

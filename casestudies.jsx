@@ -8,15 +8,15 @@ const CASE_DATA = {
 
   "baby-food": {
     navLabel: "Baby food",
-    eyebrow: "UX Case study",
+    eyebrow: "UI/UX Case study",
     title: "Baby food.",
-    lede: "A monthly food subscription service for newborns. Designed for tired parents who shop on their phones at 2 a.m.",
+    lede: "A monthly food subscription service for little ones. Designed for tired parents who shop on their phones at 2 a.m.",
     facts: [
     { label: "Role", value: "Product & Graphic designer" },
     { label: "Team", value: "20 people" },
     { label: "Year", value: "2018" }],
 
-    heroImg: { src: "assets/baby-main.png", alt: "Baby food project", style: { width: "100%", height: "100%", objectFit: "contain" } },
+    heroImg: { src: "assets/baby-main.png", alt: "Baby food subscription mobile app onboarding flow", style: { width: "100%", height: "100%", objectFit: "contain" } },
     heroImgBg: "rgba(244,247,248,0)",
     overview: {
       tag: "Overview",
@@ -81,7 +81,7 @@ const CASE_DATA = {
     { label: "Team", value: "3 people" },
     { label: "Year", value: "2020" }],
 
-    heroImg: { src: "assets/consult-hero.png", alt: "Consulting services hero", style: { width: "100%", height: "100%", objectFit: "contain" } },
+    heroImg: { src: "assets/consult-hero.png", alt: "Consulting services platform for startups and small businesses", style: { width: "100%", height: "100%", objectFit: "contain" } },
     heroImgBg: "transparent",
     overview: {
       tag: "Overview",
@@ -159,7 +159,7 @@ const CASE_DATA = {
     { label: "Team", value: "5 people" },
     { label: "Year", value: "2020" }],
 
-    heroImg: { src: "assets/realestate-hero.jpg", alt: "Real estate project", style: { width: "100%", height: "100%", objectFit: "cover" } },
+    heroImg: { src: "assets/realestate-hero.jpg", alt: "Real estate communication app for agents and clients", style: { width: "100%", height: "100%", objectFit: "cover" } },
     heroImgBg: "transparent",
     overview: {
       tag: "Overview",
@@ -217,7 +217,7 @@ const CASE_DATA = {
     },
     learnings: {
       tag: "What did I learn from this project?", tagColor: "bf-tag-orange",
-      title: "Conclusion.",
+      title: "Two sides, one clear conversation.",
       body: "So we have created a system where it will be much easier for the user to communicate with the Agent and vice versa.\n\nThe agent will be able to choose between two options. The first option is to send the user only a search query.\n\nAfter the user completes the query and clicks on the save button, the agent will be able to see possible matches in their database.\n\nThe user will also be able to view the matches on his small website and will be able to rate the proposed object on the buttons for like or dislike."
     },
     floaters: [
@@ -230,7 +230,7 @@ const CASE_DATA = {
 
   "travel": {
     navLabel: "Travel app",
-    eyebrow: "UX Case study",
+    eyebrow: "UI/UX Case study",
     title: "Travel app.",
     lede: "Reserving and discovering travel destinations for young people, built around how Gen-Z actually plans trips.",
     facts: [
@@ -238,14 +238,14 @@ const CASE_DATA = {
     { label: "Team", value: "6 people" },
     { label: "Year", value: "2021" }],
 
-    heroImg: { src: "assets/travel-hero.jpg", alt: "Travel app project", style: { width: "100%", height: "100%", objectFit: "cover" } },
+    heroImg: { src: "assets/travel-hero.jpg", alt: "Travel reservation and discovery web app for young travellers", style: { width: "100%", height: "100%", objectFit: "cover" } },
     heroImgBg: "transparent",
     overview: {
       tag: "Overview",
       title: "A piece of the puzzle.",
       body: [
       "This is where it all started. But absolutely everything.",
-      "I was chilling one hot summer afternoon back in 2009 in a pub where Bogi was working behind the bar. He was also a co-owner of the Puzzle travel agency. I was complaining about how I had nowhere to go to the seaside that summer. He asked me to come along with him and be a tour guide on the trip. That's where my career as an animator and tour guide began, which then flowed into becoming the graphic designer for that same agency. From there, the director, Ćoso, sent me to help his close friend Marko at another company, where I'd be a UI designer. In the meantime, I developed a strong interest in user experience.",
+      "I was chilling one hot summer afternoon back in 2009 in a pub where my friend Bogi was working behind the bar. He was also a co-owner of the Puzzle travel agency. I was complaining about how I had nowhere to go to the seaside that summer. He asked me to come along with him and be a tour guide on the trip. That's where my career as an animator and tour guide began, which then flowed into becoming the graphic designer for that same agency. From there, the director, Ćoso, sent me to help his close friend Marko at another company, where I'd be a UI designer. In the meantime, I developed a strong interest in user experience.",
       "And now, here I am."]
 
     },
@@ -294,7 +294,7 @@ const CASE_DATA = {
 
   "luxury-watch": {
     navLabel: "Luxury Watch App",
-    eyebrow: "UX Case study",
+    eyebrow: "UI/UX Case study",
     title: "Luxury Watch App.",
     lede: "A mobile app for watch enthusiasts and passionate collectors, designed from scratch, including a full design system built in lockstep with the front-end team.",
     facts: [
@@ -303,7 +303,7 @@ const CASE_DATA = {
     { label: "Year", value: "2024" },
     { label: "Award", value: "2× Swiss Design 2025" }],
 
-    heroImg: { src: "assets/Luxury Watch App Hero.jpg", alt: "Luxury Watch App Hero", style: { width: "100%", height: "100%", objectFit: "cover" } },
+    heroImg: { src: "assets/Luxury Watch App Hero.jpg", alt: "Luxury watch mobile app, designed from scratch with a full design system", style: { width: "100%", height: "100%", objectFit: "cover" } },
     heroImgBg: "#5b5bd6",
     overview: {
       tag: "Overview",
@@ -463,11 +463,11 @@ function CaseStudyContent({ caseId, onClose, stories, index, setIndex }) {
         </button>
         <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "var(--muted)" }} className="sub-bar-title">{d.navLabel}</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String((stories || []).length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === (stories || []).length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === (stories || []).length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>
@@ -696,13 +696,13 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
         <button className="back-btn" onClick={onClose}>
           <Ico name="arrow-left" size={16} /> Back to home
         </button>
-        <div style={{ fontFamily: "Patrick Hand SC", color: "var(--muted)", fontSize: "26px" }} className="sub-bar-title">UX Design</div>
+        <div style={{ fontFamily: "Patrick Hand SC", color: "var(--muted)", fontSize: "26px" }} className="sub-bar-title">User Experience</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String((stories || []).length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === (stories || []).length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === (stories || []).length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>
@@ -721,7 +721,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/ux-hero-v6.svg" alt="UX Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
+            <ImgSkeleton src="assets/ux-hero-v6.svg" alt="User experience design process illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain", padding: 24 }} />
           </div>
         </div>
       </div>
@@ -764,7 +764,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
               </p>
             </div>
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <ImgSkeleton src="assets/ux-illustration.png" alt="UX Illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
+              <ImgSkeleton src="assets/ux-illustration.png" alt="User experience design process illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
             </div>
           </div>
         </div>
@@ -784,7 +784,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             Here's what a blueprint can look like:
           </p>
           <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)" }}>
-            <ImgSkeleton src="assets/ux-blueprint.jpg" alt="Blueprint wall" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
+            <ImgSkeleton src="assets/ux-blueprint.jpg" alt="UX strategy blueprint sketched out on a wall" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
           </div>
         </div>
       </div>
@@ -810,7 +810,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
             Throughout the design process, these three rules are the one thing everyone must stick to. That means no one (not even someone at the C-level) can propose anything that conflicts with them.
           </p>
           <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", marginTop: 40, marginBottom: 8 }}>
-            <ImgSkeleton src="assets/ux-david-rota-2.png" alt="David Rota presenting principles" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
+            <ImgSkeleton src="assets/ux-david-rota-2.png" alt="Product owner David Rota presenting UX design principles to the team in 2021" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
           </div>
           <p style={{ fontSize: 13, color: "var(--muted)", fontStyle: "italic", textAlign: "center", lineHeight: 1.5 }}>
             * My dear PO David Rota presenting principles to the team back in 2021.
@@ -828,7 +828,7 @@ function UXSuperpowerContent({ onClose, stories, index, setIndex }) {
           <p style={{ fontSize: 17, color: "rgba(255,255,255,.72)", lineHeight: 1.65, maxWidth: 720, marginBottom: 40 }}>
             A user journey is made up of three layers. In the middle is the user flow: the actual clicks. Above it are the user's potential thoughts, and below, in green, are their needs. This way, we can easily map out everything the user needs and design the best possible flow around it.
           </p>
-          <div style={{ position: "relative" }}><ImgSkeleton src="assets/ux-user-journey.png" alt="User Journey diagram" loading="lazy" imgStyle={{ width: "100%", display: "block" }} /></div>
+          <div style={{ position: "relative" }}><ImgSkeleton src="assets/ux-user-journey.png" alt="User journey diagram showing the three layers of flow, thoughts, and needs" loading="lazy" imgStyle={{ width: "100%", display: "block" }} /></div>
         </div>
       </div>
 
@@ -859,11 +859,11 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
         </button>
         <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "var(--muted)" }} className="sub-bar-title">UI & Design Systems</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String((stories || []).length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === (stories || []).length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === (stories || []).length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>
@@ -882,7 +882,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/ui-hero-v3.svg" alt="UI Illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/ui-hero-v3.svg" alt="UI and design systems illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -907,7 +907,7 @@ function UISuperpowerContent({ onClose, stories, index, setIndex }) {
               </p>
             </div>
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <ImgSkeleton src="assets/ui-illustration.png" alt="UI Illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
+              <ImgSkeleton src="assets/ui-illustration.png" alt="UI and design systems illustration" loading="lazy" imgStyle={{ width: "70%", height: "auto", objectFit: "contain" }} />
             </div>
           </div>
         </div>
@@ -1001,11 +1001,11 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
         </button>
         <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "var(--muted)" }} className="sub-bar-title">Prototype & Testing</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String((stories || []).length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === (stories || []).length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === (stories || []).length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>
@@ -1024,7 +1024,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <ImgSkeleton src="assets/proto-hero-v3.svg" alt="Prototype illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/proto-hero-v3.svg" alt="Prototyping and user testing illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -1046,7 +1046,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
               </p>
             </div>
             <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)", aspectRatio: "3/4" }}>
-              <ImgSkeleton src="assets/proto-image-1.jpg" alt="Testing session" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+              <ImgSkeleton src="assets/proto-image-1.jpg" alt="User testing session in progress" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
             </div>
           </div>
         </div>
@@ -1057,7 +1057,7 @@ function ProtoSuperpowerContent({ onClose, stories, index, setIndex }) {
         <div className="bf-wrap">
           <div className="two-col-grid">
             <div className="mob-order-last" style={{ position: "relative", borderRadius: 24, overflow: "hidden", boxShadow: "0 18px 40px -20px rgba(34,75,86,0.25)" }}>
-              <ImgSkeleton src="assets/proto-image-2.jpg" alt="Real environment testing" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
+              <ImgSkeleton src="assets/proto-image-2.jpg" alt="User testing a prototype in a real-world environment" loading="lazy" imgStyle={{ width: "100%", display: "block" }} />
             </div>
             <div>
               <div className="bf-tag bf-tag-yellow">Real people in a real environment.</div>
@@ -1130,11 +1130,11 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
         </button>
         <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "var(--muted)" }} className="sub-bar-title">Brand identities</div>
         <div className="sub-nav">
-          <button aria-label="Previous" disabled={index === 0} onClick={() => setIndex(index - 1)}>
+          <button aria-label="Previous" onClick={() => setIndex(index - 1)} style={{ visibility: index === 0 ? "hidden" : "visible" }}>
             <Ico name="arrow-left" size={16} />
           </button>
           <span className="sub-idx">{String(index + 1).padStart(2, "0")} / {String((stories || []).length).padStart(2, "0")}</span>
-          <button aria-label="Next" disabled={index === (stories || []).length - 1} onClick={() => setIndex(index + 1)}>
+          <button aria-label="Next" onClick={() => setIndex(index + 1)} style={{ visibility: index === (stories || []).length - 1 ? "hidden" : "visible" }}>
             <Ico name="arrow-right" size={16} />
           </button>
         </div>
@@ -1153,7 +1153,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
             </p>
           </div>
           <div className="sp-hero-illo" style={{ position: "relative", borderRadius: 32, overflow: "hidden", aspectRatio: "4/3", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-            <ImgSkeleton src="assets/brand-hero-v3.svg" alt="Brand illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
+            <ImgSkeleton src="assets/brand-hero-v3.svg" alt="Brand identity design illustration" loading="lazy" imgStyle={{ width: "100%", height: "100%", objectFit: "contain" }} />
           </div>
         </div>
       </div>
@@ -1175,7 +1175,7 @@ function BrandSuperpowerContent({ onClose, stories, index, setIndex }) {
               </p>
             </div>
             <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", alignSelf: "center" }}>
-              <ImgSkeleton src="assets/brand-illustration.svg" alt="Brand illustration" loading="lazy" imgStyle={{ width: "90%", height: "auto", objectFit: "contain" }} />
+              <ImgSkeleton src="assets/brand-illustration.svg" alt="Brand identity design illustration" loading="lazy" imgStyle={{ width: "90%", height: "auto", objectFit: "contain" }} />
             </div>
           </div>
         </div>

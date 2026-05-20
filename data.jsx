@@ -97,7 +97,7 @@ const UX_CASES = [
       ["What I designed","A unified inbox where listings sit next to chat, so one thumb can share a 2-bed apartment and answer 'pet friendly?' in the same thread."],
       ["Outcome","Agent NPS went from 31 to 62. Retention doubled in 6 months."],
     ]},
-  { id:"travel", cat:"UX case", title:"Travel app", desc:"Reserving and observing travel destinations for young people.", illo:"caseTravel",
+  { id:"travel", cat:"UX case", title:"Travel app", desc:"Reserving and discovering travel destinations for young people.", illo:"caseTravel",
     lede:"Gen-Z travelers don't plan trips. They collect places. The product had to respect that rhythm.",
     facts:[["Role","Product Designer"],["Team","6"],["Duration","5 months"],["Year","2025"]],
     sections:[

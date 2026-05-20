@@ -231,7 +231,7 @@ function Works({ onOpenCase, onOpenBrand }) {
                   <h3>{c.title}</h3>
                   <p style={{ flexGrow: 1 }}>{c.desc}</p>
                   <div className="ux-link">
-                    Found out more
+                    Find out more
                     <span className="arrow"><Ico name="arrow-right" size={14} /></span>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ function Works({ onOpenCase, onOpenBrand }) {
                     </div>
                   }
                 </div>
-                <div className="brand-link" style={{ textDecoration: isHovered ? 'none' : 'line-through' }}>
+                <div className="brand-link">
                   OPEN
                   <span className="arrow" style={{ opacity: isHovered ? 1 : 0, marginLeft: isHovered ? 8 : 0 }}><Ico name="arrow-right" size={14} /></span>
                 </div>
@@ -313,7 +313,7 @@ function About({ onOpen }) {
             <p>
               My name is Vladimir Krajišnik.<br />
               "Kraja" /ˈkra.ya/ comes from my last name and has been my nickname since childhood.<br />
-              I've been in design for over 20 years.<br />
+              I've been in design for over 15 years.<br />
               I live and work in Belgrade, and people say I look like Fred Flintstone, so some call me Fred.
             </p>
             <button className="cta" onClick={onOpen} style={{ marginTop: 20 }}>
@@ -336,7 +336,7 @@ function Contact() {
     e.preventDefault();
     const next = {};
     if (!form.name.trim()) next.name = "Name is required";
-    if (!form.email.match(/^\S+@\S+\.\S+$/)) next.email = "Valid email, please";
+    if (!form.email.match(/^\S+@\S+\.\S+$/)) next.email = "Please enter a valid email";
     if (form.message.trim().length < 10) next.message = "A little more, please";
     setErr(next);
 
@@ -679,6 +679,13 @@ function App() {
       }
     }
     saveNavState(sub, aboutOpen);
+  }, [sub, aboutOpen]);
+
+  // Keep <head> SEO tags in sync with current route (works in preview too).
+  useEffect(() => {
+    if (typeof window.__updateSeoForRoute === "function") {
+      window.__updateSeoForRoute(stateToPath(sub, aboutOpen));
+    }
   }, [sub, aboutOpen]);
 
   // Handle browser back / forward buttons (production only)

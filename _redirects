@@ -1,1 +1,24 @@
-/*    /index.html    200
+# Known SPA routes — serve index.html with 200 status
+/                         /index.html  200
+/home                     /index.html  200
+/about                    /index.html  200
+
+# Superpower pages
+/user-experience          /index.html  200
+/ui-design                /index.html  200
+/prototyping              /index.html  200
+/brand-identity           /index.html  200
+
+# Case studies
+/luxury-watch             /index.html  200
+/baby-food                /index.html  200
+/consulting               /index.html  200
+/real-estate              /index.html  200
+/travel                   /index.html  200
+/interface-designs        /index.html  200
+
+# Brand projects (any /brand/* slug)
+/brand/*                  /index.html  200
+
+# Everything else → custom 404 page with proper HTTP 404 status
+/*                        /404.html    404
