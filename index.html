@@ -265,8 +265,74 @@
   }
   .hero-greet > span{display:block}
   .hero-greet .hi{font-weight:700;margin-bottom:0.18em}
+  .hero-greet .hi-hand{
+    display:block;
+    font-family:'Patrick Hand SC',cursive;
+    font-weight:400;
+    font-size:1.15em;
+    line-height:1;
+    letter-spacing:0.02em;
+    margin-bottom:0.06em;
+    color:var(--ink);
+  }
   .hero-greet .accent{color:var(--blue);font-weight:800;letter-spacing:-0.015em}
   .hero-greet .pron{color:var(--muted);font-style:italic;font-weight:500;font-size:0.78em;margin-left:8px}
+
+  /* SEO-only product designer text — present in DOM, invisible visually */
+  .hero-wordmark-seo{
+    position:absolute !important;
+    opacity:0 !important;
+    pointer-events:none;
+    user-select:none;
+    z-index:-1;
+    width:1px;height:1px;overflow:hidden;
+    margin:0 !important;
+  }
+  /* SVG replacement for product designer */
+  .hero-wordmark-img{
+    display:block;
+    width:100%;
+    max-width:540px;
+    height:auto;
+    margin-top:clamp(16px,2.4vw,28px);
+  }
+  @media (max-width:1100px){
+    .hero-wordmark-img{max-width:620px}
+  }
+  @media (max-width:640px){
+    .hero-wordmark-img{max-width:100%}
+  }
+
+  /* tagline with white brush stroke behind */
+  .hero-tagline{
+    position:relative;
+    display:inline-block;
+    margin-top:clamp(22px,3vw,38px);
+    padding:34px 52px 38px;
+    isolation:isolate;
+  }
+  .hero-tagline-brush{
+    position:absolute;
+    inset:-6px -14px;
+    z-index:-1;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 160' preserveAspectRatio='none'><path d='M14 86 C 60 50, 140 36, 230 42 C 320 48, 420 28, 520 38 C 575 44, 595 70, 588 96 C 580 122, 540 134, 460 130 C 360 124, 260 138, 170 132 C 90 126, 18 130, 14 110 C 10 100, 8 92, 14 86 Z' fill='%23ffffff'/></svg>");
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    filter:drop-shadow(0 4px 14px rgba(34,75,86,0.06));
+  }
+  .hero-tagline-text{
+    position:relative;
+    font-family:'Figtree',sans-serif;
+    font-weight:600;
+    font-size:34px;
+    line-height:38px;
+    color:var(--ink);
+    letter-spacing:-0.005em;
+  }
+  @media (max-width:640px){
+    .hero-tagline{padding:24px 32px 28px}
+    .hero-tagline-text{font-size:24px;line-height:28px}
+  }
   /* on smaller screens (tablet) make hero copy span edge-to-edge & scale up */
   @media (max-width:1100px){
     .hero-copy{width:100%}
@@ -1039,7 +1105,7 @@
     </p>
 
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:superkraja@gmail.com">superkraja@gmail.com</a></p>
+    <p>Email: <a href="/cdn-cgi/l/email-protection#5f2c2a2f3a2d342d3e353e1f38323e3633713c3032"><span class="__cf_email__" data-cfemail="ee9d9b9e8b9c859c8f848fae89838f8782c08d8183">[email&#160;protected]</span></a></p>
     <p>
       <a href="https://www.linkedin.com/in/vladimir-krajisnik-a9b42710b">LinkedIn</a> ·
       <a href="https://dribbble.com/Superkraja">Dribbble</a>
@@ -1047,7 +1113,7 @@
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   (function(){
     try {
       // /home → redirect to root

@@ -137,13 +137,23 @@ function Hero({ showBolts }) {
         </div>
         <div className="hero-copy">
           <div className="hero-greet">
-            <span className="hi">Hi,</span>
-            <span>My name is Super.</span>
+            <span className="hi-hand">Hi,</span>
+            <span>My name is <span className="accent">Super</span>.</span>
             <br />
-            <span>I am <span className="accent">KRAJA</span><span className="pron">/ˈkra:ya/</span></span>
+            <span>I am <span className="accent">Kraja</span><span className="pron">/ˈkra:ya/</span></span>
           </div>
-          <div className="hero-wordmark">
+          <div className="hero-wordmark hero-wordmark-seo" aria-hidden="false">
             PRODUCT<br />DESIGN<span className="er">er</span>
+          </div>
+          <img
+            src="assets/product-designer-sign.svg"
+            alt=""
+            aria-hidden="true"
+            className="hero-wordmark-img" />
+
+          <div className="hero-tagline">
+            <span className="hero-tagline-brush" aria-hidden="true"></span>
+            <span className="hero-tagline-text">I shape stakeholders' ideas<br />and adapt them to users' needs.</span>
           </div>
         </div>
       </div>
