@@ -385,12 +385,74 @@ const UI_GALLERY_ITEMS = [
     desc:"An e-commerce website for a handcrafted bracelet brand. Built around product discovery and storytelling, with a focus on gemstone details and a clean ordering experience." },
 ];
 
-// ── StaticGallery: renders a project's images with prev/next + lightbox ─────
+// ── StackOverlay: a brand-gallery-style fullscreen view of all project images
+// Opens when the user clicks the slider image. Stacks images vertically at
+// full width on a dark background, with a sticky close button.
+function WiStackOverlay({ images, title, onClose }) {
+  const [phase, setPhase] = React.useState('opening'); // 'opening' | 'open' | 'closing'
+  const scrollRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const t = setTimeout(() => setPhase('open'), 240);
+    return () => clearTimeout(t);
+  }, []);
+
+  const handleClose = React.useCallback(() => {
+    setPhase('closing');
+    setTimeout(onClose, 200);
+  }, [onClose]);
+
+  React.useEffect(() => {
+    const onKey = e => { if (e.key === 'Escape') handleClose(); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [handleClose]);
+
+  return ReactDOM.createPortal(
+    <div
+      ref={scrollRef}
+      className={"wi-stack-overlay wi-stack-" + phase}
+      onClick={e => { if (e.target === e.currentTarget) handleClose(); }}
+    >
+      {/* Sticky top bar with back button on the left + centered title */}
+      <div className="wi-stack-bar">
+        <button className="wi-stack-back" onClick={handleClose} aria-label="Back">
+          <Ico name="arrow-left" size={16} /> Back
+        </button>
+        <div className="wi-stack-bar-title">{title}</div>
+        <div className="wi-stack-bar-spacer" aria-hidden="true"></div>
+      </div>
+
+      {/* Stacked, responsive images — brand-gallery layout */}
+      <div className="wi-stack-body">
+        {images.map((src, i) => (
+          <div className="wi-stack-img" key={src + i}>
+            <img
+              src={src}
+              alt={title + " — " + (i + 1)}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </div>
+        ))}
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+// ── StaticGallery: slider with prev/next arrows. Clicking the image opens a
+// brand-gallery-style stacked-images overlay (WiStackOverlay).
 function StaticGallery({ images, alt }) {
   const [idx, setIdx] = React.useState(0);
-  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const [overlayOpen, setOverlayOpen] = React.useState(false);
   const touchStartX = React.useRef(null);
-  const safe = images.length > 0 ? Math.min(idx, images.length - 1) : 0;
+  if (!images || images.length === 0) return null;
+  const safe = Math.min(idx, images.length - 1);
   const canPrev = idx > 0;
   const canNext = idx < images.length - 1;
   const hasMany = images.length > 1;
@@ -415,7 +477,7 @@ function StaticGallery({ images, alt }) {
           src={images[safe]}
           alt={alt}
           imgStyle={{ width: '100%', height: 'auto', display: 'block', cursor: 'zoom-in' }}
-          onClick={() => setLightboxOpen(true)}
+          onClick={() => setOverlayOpen(true)}
         />
       </div>
     </div>
@@ -439,8 +501,8 @@ function StaticGallery({ images, alt }) {
         </div>
       ) : viewport}
 
-      {lightboxOpen && (
-        <WiLightbox images={images} startIndex={safe} onClose={() => setLightboxOpen(false)} />
+      {overlayOpen && (
+        <WiStackOverlay images={images} title={alt} onClose={() => setOverlayOpen(false)} />
       )}
     </div>
   );

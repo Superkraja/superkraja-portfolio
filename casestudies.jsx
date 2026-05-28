@@ -385,7 +385,7 @@ function ImgSkeleton({ src, alt, imgStyle, fetchpriority, loading, decoding, onL
         fetchpriority={fetchpriority}
         loading={loading}
         decoding={decoding || "async"}
-        style={{ ...imgStyle, opacity: loaded ? 1 : 0, transition: 'opacity .4s ease' }}
+        style={{ ...imgStyle, opacity: loaded ? 1 : 0, transition: 'opacity .4s ease, transform 1.1s cubic-bezier(.22,1,.36,1)', willChange: 'transform, opacity' }}
         onLoad={() => {setLoaded(true);onLoad && onLoad();}}
         {...rest} />
       

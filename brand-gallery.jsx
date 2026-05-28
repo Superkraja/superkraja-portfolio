@@ -108,7 +108,7 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
     >
       {/* Sticky nav bar */}
       <div className="sub-bar" style={{ position: "sticky", top: 0, zIndex: 10, background: "rgba(0,0,0,0.85)", borderBottomColor: "rgba(255,255,255,0.08)" }}>
-        <button className="back-btn" onClick={onClose} style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff" }}>
+        <button className="back-btn" onClick={onClose} style={{ background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.22)", color: "#fff", boxShadow: "0 1px 2px rgba(0,0,0,.2), 0 6px 16px -4px rgba(0,0,0,.35)" }}>
           <Ico name="arrow-left" size={16} /> Back to home
         </button>
         <div style={{ fontFamily: "Patrick Hand SC", fontSize: 26, color: "rgba(255,255,255,0.5)" }} className="sub-bar-title">
@@ -118,7 +118,7 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
           <button
             aria-label="Previous brand"
             onClick={() => setIndex(index - 1)}
-            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff", visibility: index === 0 ? "hidden" : "visible" }}
+            style={{ background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.22)", color: "#fff", boxShadow: "0 1px 2px rgba(0,0,0,.2), 0 6px 16px -4px rgba(0,0,0,.35)", visibility: index === 0 ? "hidden" : "visible" }}
           >
             <Ico name="arrow-left" size={16} />
           </button>
@@ -128,7 +128,7 @@ function BrandGallery({ open, onClose, brands, index, setIndex }) {
           <button
             aria-label="Next brand"
             onClick={() => setIndex(index + 1)}
-            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", color: "#fff", visibility: index === brands.length - 1 ? "hidden" : "visible" }}
+            style={{ background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.22)", color: "#fff", boxShadow: "0 1px 2px rgba(0,0,0,.2), 0 6px 16px -4px rgba(0,0,0,.35)", visibility: index === brands.length - 1 ? "hidden" : "visible" }}
           >
             <Ico name="arrow-right" size={16} />
           </button>
