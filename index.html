@@ -1107,7 +1107,7 @@
     </p>
 
     <h2>Contact</h2>
-    <p>Email: <a href="/cdn-cgi/l/email-protection#fd8e888d988f968f9c979cbd9a909c9491d39e9290"><span class="__cf_email__" data-cfemail="7d0e080d180f160f1c171c3d1a101c1411531e1210">[email&#160;protected]</span></a></p>
+    <p>Email: <a href="mailto:superkraja@gmail.com">superkraja@gmail.com</a></p>
     <p>
       <a href="https://www.linkedin.com/in/vladimir-krajisnik-a9b42710b">LinkedIn</a> ·
       <a href="https://dribbble.com/Superkraja">Dribbble</a>
@@ -1115,25 +1115,14 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   (function(){
     try {
       // /home → redirect to root
       if (window.location.pathname === "/home") history.replaceState(null, "", "/");
-
-      // Inject a self-referential canonical synchronously so Google's initial
-      // HTML read sees the correct URL for this route (not the homepage).
-      // seo.js may later replace this on client-side navigation.
-      if (!window.location.hostname.includes('claudeusercontent')) {
-        try {
-          var canonHref = "https://superkraja.com" + window.location.pathname.replace(/\/$/, "") || "https://superkraja.com/";
-          if (canonHref === "https://superkraja.com") canonHref = "https://superkraja.com/";
-          var link = document.createElement('link');
-          link.setAttribute('rel', 'canonical');
-          link.setAttribute('href', canonHref);
-          document.head.appendChild(link);
-        } catch(_) {}
-      }
+      // (Canonical + per-route meta tags are injected by the Netlify Edge
+      // Function at netlify/edge-functions/seo-meta.ts — runs before bots
+      // see any HTML. seo.js still updates tags on client-side navigation.)
       // Inject <base href="/"> on production so relative asset paths always
       // resolve from root, even when the page is loaded at /luxury-watch etc.
       // Skip in Claude preview (claudeusercontent) — it serves from a subpath

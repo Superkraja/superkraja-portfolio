@@ -1,0 +1,9 @@
+# Netlify config. Edge functions in netlify/edge-functions/ are auto-detected,
+# but we keep an explicit block here for clarity and to pin path matching.
+
+[build]
+  publish = "."
+
+[[edge_functions]]
+  function = "seo-meta"
+  path = "/*"
