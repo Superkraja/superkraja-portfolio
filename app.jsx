@@ -69,8 +69,21 @@ function Nav({ onContact, active }) {
   const [hidden, setHidden] = useState(false);
   const [menu, setMenu] = useState(false);
   const lastY = useRef(0);
+  const menuRef = useRef(false);
+  const dropdownRef = useRef(null);
+  const btnRef = useRef(null);
+
+  // keep a ref in sync so the scroll handler can read the latest menu state
+  menuRef.current = menu;
+
   useEffect(() => {
     const onScroll = () => {
+      // While the menu is open, keep the header pinned in place.
+      if (menuRef.current) {
+        lastY.current = window.scrollY;
+        setHidden(false);
+        return;
+      }
       const y = window.scrollY;
       if (y < 80) setHidden(false);else
       if (y > lastY.current + 6) setHidden(true);else
@@ -80,6 +93,19 @@ function Nav({ onContact, active }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close the menu when tapping/clicking outside of it (or the toggle button).
+  useEffect(() => {
+    if (!menu) return;
+    const onOutside = (e) => {
+      if (dropdownRef.current && dropdownRef.current.contains(e.target)) return;
+      if (btnRef.current && btnRef.current.contains(e.target)) return;
+      setMenu(false);
+    };
+    document.addEventListener("pointerdown", onOutside, true);
+    return () => document.removeEventListener("pointerdown", onOutside, true);
+  }, [menu]);
+
   const go = (id) => {
     setMenu(false);
     const el = document.getElementById(id);
@@ -100,10 +126,15 @@ function Nav({ onContact, active }) {
           <a className="cta email-cta" href="mailto:superkraja@gmail.com" target="_blank" rel="noopener noreferrer">
             <Ico name="mail" size={16} /> <span className="email-label">superkraja@gmail.com</span>
           </a>
-          <button className="menu-btn" onClick={() => setMenu((m) => !m)} aria-label="Menu"><span /></button>
+          <button
+            ref={btnRef}
+            className={"menu-btn " + (menu ? "open" : "")}
+            onClick={() => setMenu((m) => !m)}
+            aria-label={menu ? "Close menu" : "Open menu"}
+            aria-expanded={menu}><span /></button>
         </div>
       </header>
-      <div className={"nav-mobile " + (menu ? "open" : "")}>
+      <div ref={dropdownRef} className={"nav-mobile " + (menu ? "open" : "")}>
         {NAV_SECTIONS.slice(1).map((n) =>
         <button key={n.id} className="nav-link" onClick={() => go(n.id)}>{n.label}</button>
         )}
