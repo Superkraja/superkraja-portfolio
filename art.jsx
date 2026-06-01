@@ -7,8 +7,7 @@ const Bolt = ({color="#0569E7", style}) => (
 
 const IlloUX = ({hover}) => (
   <div style={{position:'relative',width:'100%',height:'100%'}}>
-    <img src="assets/superpower-ux-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain'}} />
-    <div style={{position:'absolute',inset:0,transition:'opacity .28s ease',opacity:hover?0:1}}>
+    <div style={{position:'absolute',inset:0}}>
       <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
         <path d="M4 51L37 13H103L136 51L70.5789 127L4 51Z" fill="#4FA2F7"/>
         <path d="M76 50V71H65V68.6667H73.6596V52.3333H65V50H76Z" fill="#212527"/>
@@ -16,13 +15,13 @@ const IlloUX = ({hover}) => (
         <path d="M38 53.7305L70 89L102 53.7305L86.0166 35L70 44.4229L53.9834 35L38 53.7305ZM70 50.2246L84.9365 41.4365L95.3408 53.6289L70 81.5586L44.6602 53.6289L55.0645 41.4365L70 50.2246Z" fill="#212527"/>
       </svg>
     </div>
+    <img src="assets/superpower-ux-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .28s ease',opacity:hover?1:0}} />
   </div>
 );
 
 const IlloUI = ({hover}) => (
   <div style={{position:'relative',width:'100%',height:'100%'}}>
-    <img src="assets/superpower-design-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain'}} />
-    <div style={{position:'absolute',inset:0,transition:'opacity .28s ease',opacity:hover?0:1}}>
+    <div style={{position:'absolute',inset:0}}>
       <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
         <circle cx="70" cy="70" r="56" fill="#A391FF"/>
         <path d="M80 70C80 81.598 70.598 91 59 91C47.402 91 38 81.598 38 70C38 58.402 47.402 49 59 49C70.598 49 80 58.402 80 70Z" fill="white"/>
@@ -30,13 +29,13 @@ const IlloUI = ({hover}) => (
         <path d="M97.5 70C97.5 60.335 89.665 52.5 80 52.5V47.5C92.4264 47.5 102.5 57.5736 102.5 70C102.5 82.4264 92.4264 92.5 80 92.5V87.5C89.665 87.5 97.5 79.665 97.5 70Z" fill="#212527"/>
       </svg>
     </div>
+    <img src="assets/superpower-design-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .28s ease',opacity:hover?1:0}} />
   </div>
 );
 
 const IlloProto = ({hover}) => (
   <div style={{position:'relative',width:'100%',height:'100%'}}>
-    <img src="assets/superpower-proto-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain'}} />
-    <div style={{position:'absolute',inset:0,transition:'opacity .28s ease',opacity:hover?0:1}}>
+    <div style={{position:'absolute',inset:0}}>
       <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
         <rect width="100" height="100" transform="matrix(-4.37114e-08 1 -0.999995 -0.00306235 120 20.1533)" fill="#EED263"/>
         <path d="M75 53.5134L75 86.1042L42.4094 86.0044L42.4094 53.4136L75 53.5134Z" fill="white"/>
@@ -44,13 +43,13 @@ const IlloProto = ({hover}) => (
         <path d="M106.436 69.6568L84.1841 91.7728L80.6486 88.2373L99.3542 69.6459L80.7056 50.9973L84.252 47.4727L106.436 69.6568Z" fill="#212527"/>
       </svg>
     </div>
+    <img src="assets/superpower-proto-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .28s ease',opacity:hover?1:0}} />
   </div>
 );
 
 const IlloBrand = ({hover}) => (
   <div style={{position:'relative',width:'100%',height:'100%'}}>
-    <img src="assets/superpower-brand-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain'}} />
-    <div style={{position:'absolute',inset:0,transition:'opacity .28s ease',opacity:hover?0:1}}>
+    <div style={{position:'absolute',inset:0}}>
       <svg width="140" height="140" viewBox="0 0 140 140" fill="none" style={{width:'100%',height:'100%'}}>
         <rect width="93.6459" height="93.6459" transform="matrix(0.708189 0.706023 -0.708189 0.706023 70 3.76758)" fill="#F7679B"/>
         <path d="M55.0767 46.147L79.0031 70.0002L55.0767 93.8535L31.1503 70.0002L55.0767 46.147Z" fill="white"/>
@@ -58,6 +57,7 @@ const IlloBrand = ({hover}) => (
         <path d="M97.5 47.5V92.5H74V87.5H92.5V52.5H74V47.5H97.5Z" fill="#212527"/>
       </svg>
     </div>
+    <img src="assets/superpower-brand-hover.svg" alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',transition:'opacity .28s ease',opacity:hover?1:0}} />
   </div>
 );
 const SPEC_ILLOS = { brand:IlloBrand, ux:IlloUX, ui:IlloUI, proto:IlloProto };
