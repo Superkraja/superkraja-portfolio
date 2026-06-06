@@ -194,7 +194,7 @@ function Hero({ showBolts }) {
 function Specialties({ onOpen }) {
   const [hoveredCard, setHoveredCard] = React.useState(null);
   return (
-    <section id="powers" className="section" style={{ background: "#fff" }}>
+    <section id="powers" className="section">
       <div className="wrap">
         <div className="title-wrap reveal">
           <div className="title-chip blue" style={{ backgroundColor: "rgba(255, 255, 255, 0)", opacity: "1" }}>
@@ -235,7 +235,7 @@ function Specialties({ onOpen }) {
 function Works({ onOpenCase, onOpenBrand }) {
   const [hoveredBrand, setHoveredBrand] = React.useState(null);
   return (
-    <section id="works" className="section">
+    <section id="works" className="section" style={{ background: "#fff" }}>
       <div className="wrap">
         <div className="title-wrap reveal">
           <div className="title-chip purple">
@@ -818,8 +818,8 @@ function App() {
       <Nav active={active} onContact={goContact} />
       <main className="page">
         <Hero showBolts={tw.showBolts} />
-        <Specialties onOpen={openSpec} />
         <Works onOpenCase={openCase} onOpenBrand={openBrand} />
+        <Specialties onOpen={openSpec} />
         <About onOpen={() => setAboutOpen(true)} />
         <Contact />
         <footer>© {new Date().getFullYear()} Vladimir "Kraja" Krajišnik, Product Designer. Made with care.</footer>

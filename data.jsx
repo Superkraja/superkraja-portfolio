@@ -177,8 +177,8 @@ const BRANDS = [
 
 const NAV_SECTIONS = [
   { id:"hero", label:"Home" },
-  { id:"powers", label:"SuperPowers" },
   { id:"works", label:"Portfolio" },
+  { id:"powers", label:"SuperPowers" },
   { id:"about", label:"About me" },
   { id:"contact", label:"Contact" },
 ];
