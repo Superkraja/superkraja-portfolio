@@ -368,7 +368,7 @@ function About({ onOpen }) {
 }
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", _gotcha: "" });
   const [err, setErr] = useState({});
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -390,13 +390,14 @@ function Contact() {
           body: JSON.stringify({
             name: form.name,
             email: form.email,
-            message: form.message
+            message: form.message,
+            _gotcha: form._gotcha
           })
         });
 
         if (response.ok) {
           setSent(true);
-          setForm({ name: "", email: "", message: "" });
+          setForm({ name: "", email: "", message: "", _gotcha: "" });
           setTimeout(() => setSent(false), 3500);
         } else {
           setErr({ message: "Something went wrong. Please try again." });
@@ -423,6 +424,7 @@ function Contact() {
           <form className="contact-form reveal" onSubmit={submit} noValidate method="post" action="#contact" style={{ backgroundColor: "rgb(62, 69, 72)" }}>
             <h3>Don't worry,</h3>
             <p>I don't have any mind-control powers, so don't be afraid to drop me a message.</p>
+            <input type="text" name="_gotcha" tabIndex="-1" autoComplete="off" value={form._gotcha} onChange={(e) => setForm({ ...form, _gotcha: e.target.value })} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
             <div className="field">
               <label>Your name</label>
               <input type="text" name="name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Super friend" />
