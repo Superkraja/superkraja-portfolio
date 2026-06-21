@@ -212,7 +212,6 @@ function AboutPage({ open, onClose }) {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 20 }}>
             {[
-            { icon: "👨‍👧‍👦", title: "Three kids", desc: "Parent of three. The best project I've ever shipped." },
             { icon: "🛹", title: "Skate & Snow", desc: "Passionate lover of skateboards and snowboards." },
             { icon: "🎸", title: "April O'Neil", desc: "Band: April O'Neil from Channel 6. One epic gig per year, and we crush it." },
             { icon: "🏋️", title: "CrossFit", desc: "One unhealthy obsession. No regrets." }].
